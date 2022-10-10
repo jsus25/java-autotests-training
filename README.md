@@ -1,0 +1,1 @@
+# java-autotests-training

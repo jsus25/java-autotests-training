@@ -17,7 +17,12 @@ public class GroupCreation5Test {
   public void setUp() {
     driver = new ChromeDriver();
     js = (JavascriptExecutor) driver;
-//    Map<String, Object> vars = new HashMap<String, Object>();
+    driver.get("http://localhost/addressbook/");
+    driver.manage().window().setSize(new Dimension(1198, 804));
+    driver.findElement(By.name("user")).sendKeys("admin");
+    driver.findElement(By.name("pass")).click();
+    driver.findElement(By.name("pass")).sendKeys("secret");
+    driver.findElement(By.cssSelector("input:nth-child(7)")).click();
   }
 
   @AfterMethod
@@ -26,13 +31,7 @@ public class GroupCreation5Test {
   }
 
   @Test
-  public void groupCreation5() {
-    driver.get("http://localhost/addressbook/");
-    driver.manage().window().setSize(new Dimension(1198, 804));
-    driver.findElement(By.name("user")).sendKeys("admin");
-    driver.findElement(By.name("pass")).click();
-    driver.findElement(By.name("pass")).sendKeys("secret");
-    driver.findElement(By.cssSelector("input:nth-child(7)")).click();
+  public void testGroupCreation5() {
     driver.findElement(By.linkText("groups")).click();
     driver.findElement(By.name("new")).click();
     driver.findElement(By.name("group_name")).click();

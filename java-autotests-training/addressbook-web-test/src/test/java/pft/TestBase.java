@@ -58,7 +58,40 @@ public class TestBase {
     driver.findElement(By.name("delete")).click();
   }
 
-  protected void selectGroup() {
+  protected void deleteContact() {
+    driver.findElement(By.cssSelector(".left:nth-child(8) > input")).click();
+  }
+
+  protected void selectElement() {
     driver.findElement(By.name("selected[]")).click();
   }
+
+  protected void submitContactCreation() {
+    driver.findElement(By.name("submit")).click();
+  }
+
+  protected void fillContactForm(ContactData contactData) {
+    driver.findElement(By.name("firstname")).sendKeys(contactData.first_name());
+    driver.findElement(By.name("lastname")).sendKeys(contactData.last_name());
+    driver.findElement(By.name("company")).sendKeys(contactData.company());
+    driver.findElement(By.name("address")).sendKeys(contactData.address());
+    driver.findElement(By.name("mobile")).sendKeys(contactData.mobile_phone());
+    driver.findElement(By.name("email")).sendKeys(contactData.email());
+  }
+
+  protected void goToContactAddPage() {
+    driver.findElement(By.linkText("add new")).click();
+  }
+  protected void goToHomePage() {
+    driver.findElement(By.linkText("home")).click();
+  }
+  protected void returnToHomePage() {
+    driver.findElement(By.linkText("home page")).click();
+  }
+
+  protected void confirmAlert() {
+    //   assertThat(driver.switchTo().alert().getText(), is("Delete 1 addresses?"));
+    driver.switchTo().alert().accept();
+  }
+
 }

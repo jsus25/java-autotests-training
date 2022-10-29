@@ -5,7 +5,11 @@ import org.openqa.selenium.WebDriver;
 import pft.model.GroupData;
 
 public class GroupHelper {
-  protected WebDriver driver;
+  private WebDriver driver;
+
+  public GroupHelper(WebDriver driver) {
+    this.driver = driver;
+  }
 
   public void submitGroupCreation() {
     driver.findElement(By.name("submit")).click();

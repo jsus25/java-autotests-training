@@ -3,14 +3,11 @@ package pft.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pft.model.ContactData;
-import pft.model.GroupData;
 
-public class ApplicationManager {
+public class ApplicationManager extends GroupHelper {
   JavascriptExecutor js;
-  private WebDriver driver;
 
   public void init() {
     driver = new ChromeDriver();
@@ -30,30 +27,8 @@ public class ApplicationManager {
     driver.quit();
   }
 
-  public void submitGroupCreation() {
-    driver.findElement(By.name("submit")).click();
-  }
-
-  public void fillGroupForm(GroupData groupData) {
-    driver.findElement(By.name("group_name")).sendKeys(groupData.name());
-    driver.findElement(By.name("group_header")).sendKeys(groupData.header());
-    driver.findElement(By.name("group_footer")).sendKeys(groupData.footer());
-  }
-
-  public void initGroupCreation() {
-    driver.findElement(By.name("new")).click();
-  }
-
   public void goToGroupPage() {
     driver.findElement(By.linkText("groups")).click();
-  }
-
-  public void returnToGroupPage() {
-    driver.findElement(By.linkText("group page")).click();
-  }
-
-  public void deleteGroup() {
-    driver.findElement(By.name("delete")).click();
   }
 
   public void deleteContact() {
@@ -65,7 +40,7 @@ public class ApplicationManager {
   }
 
   public void submitContactCreation() {
-    driver.findElement(By.name("submit")).click();
+    submitGroupCreation();
   }
 
   public void fillContactForm(ContactData contactData) {

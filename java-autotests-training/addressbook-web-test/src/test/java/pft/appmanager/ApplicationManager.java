@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ApplicationManager {
   protected WebDriver driver;
+  private SessionHelper sessionHelper;
   private NavigationHelper navigationHelper;
   private ContactHelper contactHelper;
   private GroupHelper groupHelper;
@@ -21,13 +22,8 @@ public class ApplicationManager {
     groupHelper = new GroupHelper(driver);
     contactHelper = new ContactHelper(driver);
     navigationHelper = new NavigationHelper(driver);
-    login("admin", "secret");
-  }
-
-  public void login(String username, String password) {
-    driver.findElement(By.name("user")).sendKeys(username);
-    driver.findElement(By.name("pass")).sendKeys(password);
-    driver.findElement(By.cssSelector("input:nth-child(7)")).click();
+    sessionHelper = new SessionHelper(driver);
+    sessionHelper.login("admin", "secret");
   }
 
   public void stop() {

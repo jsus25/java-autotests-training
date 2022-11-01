@@ -4,12 +4,11 @@ import org.testng.annotations.Test;
 
 public class GroupDeletionTest extends TestBase {
 
-
   @Test
   public void testGroupCreation5() {
     app.getNavigationHelper().goToGroupPage();
-    app.selectElement();
-    app.getGroupHelper().deleteGroup();
+    app.getGroupHelper().selectElement();
+    app.getGroupHelper().clickDelete();
     app.getGroupHelper().returnToGroupPage();
   }
 

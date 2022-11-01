@@ -12,9 +12,11 @@ public class ContactHelper extends HelperBase {
 
   public void deleteContact() {
     click(By.cssSelector(".left:nth-child(8) > input"));
-
- //   driver.findElement(By.cssSelector(".left:nth-child(8) > input")).click();
   }
+  public void submitContactCreation() {
+    click(By.name("submit"));
+  }
+
 
   public void fillContactForm(ContactData contactData) {
     type(By.name("firstname"),contactData.first_name());
@@ -23,17 +25,17 @@ public class ContactHelper extends HelperBase {
     type(By.name("address"),contactData.address());
     type(By.name("mobile"),contactData.mobile_phone());
     type(By.name("email"),contactData.email());
-
-//    driver.findElement(By.name("firstname")).sendKeys(contactData.first_name());
-//    driver.findElement(By.name("lastname")).sendKeys(contactData.last_name());
-//    driver.findElement(By.name("company")).sendKeys(contactData.company());
-//    driver.findElement(By.name("address")).sendKeys(contactData.address());
-//    driver.findElement(By.name("mobile")).sendKeys(contactData.mobile_phone());
-//    driver.findElement(By.name("email")).sendKeys(contactData.email());
+  }
+  public void selectElement() {
+    click(By.name("selected[]"));
   }
 
   public void confirmAlert() {
     //   assertThat(driver.switchTo().alert().getText(), is("Delete 1 addresses?"));
     driver.switchTo().alert().accept();
   }
+  public void returnToHomePage() {
+    click(By.linkText("home page"));
+  }
+
 }

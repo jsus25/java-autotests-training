@@ -30,18 +30,6 @@ public class ApplicationManager {
     driver.quit();
   }
 
-  public void selectElement() {
-    driver.findElement(By.name("selected[]")).click();
-  }
-
-  public void submitContactCreation() {
-    groupHelper.submitGroupCreation();
-  }
-
-  public void returnToHomePage() {
-    driver.findElement(By.linkText("home page")).click();
-  }
-
   public GroupHelper getGroupHelper() {
     return groupHelper;
   }

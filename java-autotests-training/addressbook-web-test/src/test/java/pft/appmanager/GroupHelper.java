@@ -23,16 +23,22 @@ public class GroupHelper extends HelperBase {
   public void initGroupCreation() {
     click(By.name("new"));
   }
+  public void clickDelete() {
+    click(By.name("delete"));
+  }
+  public void initEdition() {click(By.name("edit"));
+  }
 
   public void returnToGroupPage() {
     click(By.linkText("group page"));
   }
 
-  public void clickDelete() {
-    click(By.name("delete"));
-  }
+
   public void selectElement() {
     click(By.name("selected[]"));
   }
 
+
+  public void submitGroupUodate() { click(By.name("update"));
+  }
 }

@@ -1,10 +1,11 @@
 package pft.appmanager;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class ApplicationManager {
   protected WebDriver driver;
@@ -13,9 +14,21 @@ public class ApplicationManager {
   private ContactHelper contactHelper;
   private GroupHelper groupHelper;
   JavascriptExecutor js;
+  private String browser;
+
+  public ApplicationManager(String browser) {
+    this.browser = browser;
+  }
 
   public void init() {
-    driver = new ChromeDriver();
+    if (browser == "CHROME") {
+      driver = new ChromeDriver();
+    } else if (browser == "FIREFOX") {
+      driver = new FirefoxDriver();
+    } else if (browser == "EDGE") {
+      driver = new EdgeDriver();
+    }
+
     js = (JavascriptExecutor) driver;
     driver.get("http://localhost/addressbook/");
     driver.manage().window().setSize(new Dimension(1198, 804));

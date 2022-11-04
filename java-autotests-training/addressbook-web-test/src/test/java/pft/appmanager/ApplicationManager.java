@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.Objects;
+
 public class ApplicationManager {
   protected WebDriver driver;
   private SessionHelper sessionHelper;
@@ -21,11 +23,11 @@ public class ApplicationManager {
   }
 
   public void init() {
-    if (browser == "CHROME") {
+    if (Objects.equals(browser, "CHROME")) {
       driver = new ChromeDriver();
-    } else if (browser == "FIREFOX") {
+    } else if (Objects.equals(browser, "FIREFOX")) {
       driver = new FirefoxDriver();
-    } else if (browser == "EDGE") {
+    } else if (Objects.equals(browser, "EDGE")) {
       driver = new EdgeDriver();
     }
 

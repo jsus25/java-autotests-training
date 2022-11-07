@@ -10,7 +10,7 @@ public class ContactEditionTest extends TestBase{
     app.getNavigationHelper().goToHomePage();
     app.getContactHelper().selectElement();
     app.getContactHelper().initEdition();
-    app.getContactHelper().fillContactForm(new ContactData("Margo", "Frolova", "SCB", "Academ", "88888888888","mf749@gtkd,ru"));
+    app.getContactHelper().fillContactForm(new ContactData("Margo", "Frolova", "SCB", "Academ", "88888888888","mf749@gtkd,ru", null), false);
     app.getContactHelper().submitContactUpdate();
     app.getNavigationHelper().goToHomePage();
   }

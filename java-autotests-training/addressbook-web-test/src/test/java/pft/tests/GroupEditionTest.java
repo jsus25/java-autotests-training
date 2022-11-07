@@ -12,7 +12,7 @@ public class GroupEditionTest extends TestBase{
     app.getNavigationHelper().goToGroupPage();
     app.getGroupHelper().selectElement();
     app.getGroupHelper().initEdition();
-    app.getGroupHelper().fillGroupForm(new GroupData("groop10", "gh10", "gf10"));
+    app.getGroupHelper().fillGroupForm(new GroupData("groop7", "gh10", "gf10"));
     app.getGroupHelper().submitGroupUodate();
     app.getGroupHelper().returnToGroupPage();
   }

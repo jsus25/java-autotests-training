@@ -2,6 +2,7 @@ package pft.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 import pft.model.ContactData;
 
 public class ContactHelper extends HelperBase {
@@ -18,13 +19,16 @@ public class ContactHelper extends HelperBase {
   }
 
 
-  public void fillContactForm(ContactData contactData) {
+  public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"),contactData.first_name());
     type(By.name("lastname"),contactData.last_name());
     type(By.name("company"),contactData.company());
     type(By.name("address"),contactData.address());
     type(By.name("mobile"),contactData.mobile_phone());
     type(By.name("email"),contactData.email());
+    if (creation) {
+      new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.group());
+    }
   }
   public void selectElement() {
     click(By.name("selected[]"));

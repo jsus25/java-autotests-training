@@ -21,14 +21,14 @@ public class ContactHelper extends HelperBase {
 
 
   public void fillContactForm(ContactData contactData, boolean creation) {
-    type(By.name("firstname"),contactData.first_name());
-    type(By.name("lastname"),contactData.last_name());
-    type(By.name("company"),contactData.company());
-    type(By.name("address"),contactData.address());
-    type(By.name("mobile"),contactData.mobile_phone());
-    type(By.name("email"),contactData.email());
+    type(By.name("firstname"),contactData.getFirstname());
+    type(By.name("lastname"),contactData.getLastname());
+    type(By.name("company"),contactData.getCompany());
+    type(By.name("address"),contactData.getAddress());
+    type(By.name("mobile"),contactData.getMobilePhone());
+    type(By.name("email"),contactData.getEmail());
     if (creation) {
-      new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.group());
+      new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }

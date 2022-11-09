@@ -60,4 +60,8 @@ public class ContactHelper extends HelperBase {
     returnToHomePage();
 
   }
+
+  public boolean isThereAContact() {
+    return (isElementPresent(By.name("selected[]")));
+  }
 }

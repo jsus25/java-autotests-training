@@ -11,12 +11,11 @@ import java.util.Objects;
 
 public class ApplicationManager {
   protected WebDriver driver;
-  private SessionHelper sessionHelper;
   private NavigationHelper navigationHelper;
   private ContactHelper contactHelper;
   private GroupHelper groupHelper;
   JavascriptExecutor js;
-  private String browser;
+  private final String browser;
 
   public ApplicationManager(String browser) {
     this.browser = browser;
@@ -35,9 +34,9 @@ public class ApplicationManager {
     driver.get("http://localhost/addressbook/");
     driver.manage().window().setSize(new Dimension(1198, 804));
     groupHelper = new GroupHelper(driver);
-    contactHelper = new ContactHelper(driver);
     navigationHelper = new NavigationHelper(driver);
-    sessionHelper = new SessionHelper(driver);
+    contactHelper = new ContactHelper(driver, navigationHelper);
+    SessionHelper sessionHelper = new SessionHelper(driver);
     sessionHelper.login("admin", "secret");
   }
 

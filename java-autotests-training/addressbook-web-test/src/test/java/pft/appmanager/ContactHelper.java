@@ -7,9 +7,11 @@ import org.testng.Assert;
 import pft.model.ContactData;
 
 public class ContactHelper extends HelperBase {
+  private final NavigationHelper navigationHelper;
 
-  public ContactHelper(WebDriver driver) {
+  public ContactHelper(WebDriver driver, NavigationHelper navigationHelper) {
     super(driver);
+    this.navigationHelper = navigationHelper;
   }
 
   public void deleteContact() {
@@ -50,5 +52,12 @@ public class ContactHelper extends HelperBase {
   }
 
   public void submitContactUpdate() { click(By.name("update"));
+  }
+  public void createContact() {
+    navigationHelper.goToContactAddPage();
+    fillContactForm(new ContactData("Juliett", "Suslenkova", "Corporation", null, "89567845736",null, "group9"),true);
+    submitContactCreation();
+    returnToHomePage();
+
   }
 }

@@ -1,6 +1,7 @@
 package pft.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -63,5 +64,16 @@ public class ContactHelper extends HelperBase {
 
   public boolean isThereAContact() {
     return (isElementPresent(By.name("selected[]")));
+  }
+  public boolean isGroupPresent(String group) {
+    try {
+      new Select(driver.findElement(By.name("to_group"))).selectByVisibleText(group);
+      return true;
+    } catch (NoSuchElementException exception) {
+      return false;
+    }
+
+
+
   }
 }

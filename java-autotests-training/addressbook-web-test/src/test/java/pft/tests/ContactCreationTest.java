@@ -7,7 +7,9 @@ public class ContactCreationTest extends TestBase {
 
   @Test
   public void testContactCreation() {
-    app.getContactHelper().createContact(new ContactData("Juliett", "Suslenkova", "Corporation", null, "89567845736",null, "group9"));
-  }
+    if (app.getContactHelper().isGroupPresent("group9")) {
+      app.getContactHelper().createContact(new ContactData("Juliett", "Suslenkova", "Corporation", null, "89567845736",null, "group9"));
+    }
+   }
 
 }

@@ -53,9 +53,9 @@ public class ContactHelper extends HelperBase {
 
   public void submitContactUpdate() { click(By.name("update"));
   }
-  public void createContact() {
+  public void createContact(ContactData contact) {
     navigationHelper.goToContactAddPage();
-    fillContactForm(new ContactData("Juliett", "Suslenkova", "Corporation", null, "89567845736",null, "group9"),true);
+    fillContactForm(contact, true);
     submitContactCreation();
     returnToHomePage();
 

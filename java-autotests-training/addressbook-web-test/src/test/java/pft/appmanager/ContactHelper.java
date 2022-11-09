@@ -36,7 +36,7 @@ public class ContactHelper extends HelperBase {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
   }
-  public void selectElement() {
+  public void selectContact() {
     click(By.name("selected[]"));
   }
 
@@ -56,10 +56,13 @@ public class ContactHelper extends HelperBase {
   }
   public void createContact(ContactData contact) {
     navigationHelper.goToContactAddPage();
-    fillContactForm(contact, true);
-    submitContactCreation();
-    returnToHomePage();
-
+    if (isGroupPresent(contact.getGroup())) {
+      fillContactForm(contact, true);
+      submitContactCreation();
+      returnToHomePage();
+    } else {
+      System.out.println("!!! Couldn't create a contact: Group is absent in DB");
+    }
   }
 
   public boolean isThereAContact() {
@@ -67,7 +70,7 @@ public class ContactHelper extends HelperBase {
   }
   public boolean isGroupPresent(String group) {
     try {
-      new Select(driver.findElement(By.name("to_group"))).selectByVisibleText(group);
+      new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(group);
       return true;
     } catch (NoSuchElementException exception) {
       return false;

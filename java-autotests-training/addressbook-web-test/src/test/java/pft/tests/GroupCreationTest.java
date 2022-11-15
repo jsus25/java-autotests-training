@@ -9,7 +9,6 @@ public class GroupCreationTest extends TestBase {
   public void testGroupCreation5() {
     app.getNavigationHelper().goToGroupPage();
     app.getGroupHelper().createGroup(new GroupData("group5", "h5", "f5"));
-
   }
 
 }

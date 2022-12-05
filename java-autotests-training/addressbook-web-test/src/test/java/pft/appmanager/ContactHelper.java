@@ -59,10 +59,10 @@ public class ContactHelper extends HelperBase {
     if (isGroupPresent(contact.getGroup())) {
       fillContactForm(contact, true);
       submitContactCreation();
-      returnToHomePage();
     } else {
       System.out.println("!!! Couldn't create a contact: Group is absent in DB");
     }
+    returnToHomePage();
   }
 
   public boolean isThereAContact() {
@@ -78,5 +78,9 @@ public class ContactHelper extends HelperBase {
 
 
 
+  }
+
+  public int getContactCount() {
+    return driver.findElements(By.name("entry")).size();
   }
 }

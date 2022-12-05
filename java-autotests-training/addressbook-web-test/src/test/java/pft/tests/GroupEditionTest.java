@@ -15,7 +15,7 @@ public class GroupEditionTest extends TestBase{
       app.getGroupHelper().createGroup(new GroupData("group5", "h5", "f5"));
     }
     int before = app.getGroupHelper().getGroupCount();
-    app.getGroupHelper().selectElement();
+    app.getGroupHelper().selectElement(before - 1);
     app.getGroupHelper().initEdition();
     app.getGroupHelper().fillGroupForm(new GroupData("group7", "gh10", "gf10"));
     app.getGroupHelper().submitGroupUpdate();

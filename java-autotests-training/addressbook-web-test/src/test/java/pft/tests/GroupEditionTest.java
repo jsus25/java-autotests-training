@@ -4,6 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pft.model.GroupData;
 
+import java.util.List;
+
 
 public class GroupEditionTest extends TestBase{
 
@@ -14,14 +16,14 @@ public class GroupEditionTest extends TestBase{
     if (! app.getGroupHelper().isThereAGroup()) {
       app.getGroupHelper().createGroup(new GroupData("group5", "h5", "f5"));
     }
-    int before = app.getGroupHelper().getGroupCount();
-    app.getGroupHelper().selectElement(before - 1);
+    List<GroupData> before = app.getGroupHelper().getGroupList();
+    app.getGroupHelper().selectElement(before.size() - 1);
     app.getGroupHelper().initEdition();
     app.getGroupHelper().fillGroupForm(new GroupData("group7", "gh10", "gf10"));
     app.getGroupHelper().submitGroupUpdate();
     app.getGroupHelper().returnToGroupPage();
-    int after = app.getGroupHelper().getGroupCount();
-    Assert.assertEquals(after, before);
+    List<GroupData> after = app.getGroupHelper().getGroupList();
+    Assert.assertEquals(after.size(), before.size());
   }
 
 }

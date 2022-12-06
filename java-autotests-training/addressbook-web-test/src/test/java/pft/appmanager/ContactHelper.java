@@ -36,8 +36,8 @@ public class ContactHelper extends HelperBase {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
   }
-  public void selectContact() {
-    click(By.name("selected[]"));
+  public void selectContact(int index) {
+    driver.findElements(By.name("selected[]")).get(index).click();
   }
 
   public void confirmAlert() {
@@ -48,8 +48,9 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("home page"));
   }
 
-  public void initEdition() {
-    click(By.cssSelector(("tr:nth-child(2) > .center:nth-child(8) img")));
+  public void initEdition(int index) {
+    driver.findElements(By.xpath("/html/body/div/div[4]/form[2]/table/tbody/tr/td[8]")).get(index).click();
+//    click(By.cssSelector(("tr:nth-child(2) > .center:nth-child(8) img")));
   }
 
   public void submitContactUpdate() { click(By.name("update"));

@@ -13,8 +13,7 @@ public class ContactEditionTest extends TestBase{
       app.getContactHelper().createContact(new ContactData("Juliett", "Suslenkova", "Corporation", null, "89567845736",null, "group5"));
     }
     int before = app.getContactHelper().getContactCount();
-    app.getContactHelper().selectContact();
-    app.getContactHelper().initEdition();
+    app.getContactHelper().initEdition(before - 1);
     app.getContactHelper().fillContactForm(new ContactData("Margo", "Frolova", "SCB", "Academ", "88888888888","mf749@gtkd,ru", null), false);
     app.getContactHelper().submitContactUpdate();
     app.getNavigationHelper().goToHomePage();

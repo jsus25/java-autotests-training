@@ -3,9 +3,13 @@ package pft.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import pft.model.ContactData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
   private final NavigationHelper navigationHelper;
@@ -21,7 +25,6 @@ public class ContactHelper extends HelperBase {
   public void submitContactCreation() {
     click(By.name("submit"));
   }
-
 
   public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"),contactData.getFirstname());
@@ -50,7 +53,6 @@ public class ContactHelper extends HelperBase {
 
   public void initEdition(int index) {
     driver.findElements(By.xpath("/html/body/div/div[4]/form[2]/table/tbody/tr/td[8]")).get(index).click();
-//    click(By.cssSelector(("tr:nth-child(2) > .center:nth-child(8) img")));
   }
 
   public void submitContactUpdate() { click(By.name("update"));
@@ -76,12 +78,16 @@ public class ContactHelper extends HelperBase {
     } catch (NoSuchElementException exception) {
       return false;
     }
-
-
-
   }
 
-  public int getContactCount() {
-    return driver.findElements(By.name("entry")).size();
+  public List<ContactData> getContactList() {
+    List<ContactData> contacts = new ArrayList<>();
+    List<WebElement> elements = driver.findElements(By.xpath("//*[@id=\"maintable\"]/tbody/tr/td[2]"));
+    for (WebElement element : elements) {
+      String lastName = element.getText();
+      ContactData contact = new ContactData(lastName, null, null, null, null, null, null);
+      contacts.add(contact);
+    }
+    return contacts;
   }
 }

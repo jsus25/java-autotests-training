@@ -82,10 +82,12 @@ public class ContactHelper extends HelperBase {
 
   public List<ContactData> getContactList() {
     List<ContactData> contacts = new ArrayList<>();
-    List<WebElement> elements = driver.findElements(By.xpath("//*[@id=\"maintable\"]/tbody/tr/td[2]"));
-    for (WebElement element : elements) {
-      String lastName = element.getText();
-      ContactData contact = new ContactData(lastName, null, null, null, null, null, null);
+    List<WebElement> lastNames = driver.findElements(By.xpath("//*[@id=\"maintable\"]/tbody/tr/td[2]"));
+    List<WebElement> firstNames = driver.findElements(By.xpath("//*[@id=\"maintable\"]/tbody/tr/td[3]"));
+    for (int i = 0; i < lastNames.size(); i++){
+      String lastName = lastNames.get(i).getText();
+      String firstName = firstNames.get(i).getText();
+      ContactData contact = new ContactData(firstName, lastName, null, null, null, null, null);
       contacts.add(contact);
     }
     return contacts;

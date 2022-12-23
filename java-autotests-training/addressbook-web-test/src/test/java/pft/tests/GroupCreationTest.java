@@ -12,7 +12,7 @@ public class GroupCreationTest extends TestBase {
   public void testGroupCreation5() {
     app.getNavigationHelper().goToGroupPage();
     List<GroupData> before = app.getGroupHelper().getGroupList();
-    app.getGroupHelper().createGroup(new GroupData("group5", "h5", "f5"));
+    app.getGroupHelper().createGroup(new GroupData(null,"group5", "h5", "f5"));
     List<GroupData> after = app.getGroupHelper().getGroupList();
     Assert.assertEquals(after.size(), before.size() + 1);
   }

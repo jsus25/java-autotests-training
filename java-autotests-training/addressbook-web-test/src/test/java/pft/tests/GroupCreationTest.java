@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pft.model.GroupData;
 
+import java.util.HashSet;
 import java.util.List;
 
 public class GroupCreationTest extends TestBase {
@@ -15,6 +16,13 @@ public class GroupCreationTest extends TestBase {
     app.getGroupHelper().createGroup(new GroupData(null,"group5", "h5", "f5"));
     List<GroupData> after = app.getGroupHelper().getGroupList();
     Assert.assertEquals(after.size(), before.size() + 1);
+
+    int max = 0;
+    for (GroupData g : after){
+      if (g.id() > max) max = g.id();
+    }
+    before.add(new GroupData(max, "group5", "h5", "f5"));
+    Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
   }
 
 }

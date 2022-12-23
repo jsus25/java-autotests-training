@@ -2,11 +2,9 @@ package pft.model;
 
 import java.util.Objects;
 
-public record GroupData(String id, String name, String header, String footer) {
-  @Override
-  public String id() {
-    return id;
-  }
+public record GroupData(Integer id, String name, String header, String footer) {
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
@@ -19,4 +17,5 @@ public record GroupData(String id, String name, String header, String footer) {
   public int hashCode() {
     return Objects.hash(id, name);
   }
+
 }

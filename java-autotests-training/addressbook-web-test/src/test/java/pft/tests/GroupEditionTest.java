@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pft.model.GroupData;
 
-import java.util.HashSet;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -29,7 +29,10 @@ public class GroupEditionTest extends TestBase{
 
     before.remove(before.size() - 1);
     before.add(newGroup);
-    Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
+    Comparator<? super GroupData> byID = Comparator.comparingInt(GroupData::id);
+    before.sort(byID);
+    after.sort(byID);
+    Assert.assertEquals(before, after);
   }
 
 }

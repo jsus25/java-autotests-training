@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pft.model.ContactData;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class ContactCreationTest extends TestBase {
@@ -12,9 +13,16 @@ public class ContactCreationTest extends TestBase {
   public void testContactCreation() {
     app.getNavigationHelper().goToHomePage();
     List<ContactData> before = app.getContactHelper().getContactList();
-    app.getContactHelper().createContact(new ContactData("Juliett", "Suslenkova", "Corporation", null, "89567845736",null, "group5"));
+    ContactData newContactData = new ContactData(Integer.MAX_VALUE,"Juliett", "Suslenkova", "Corporation", null, "89567845736",null, "group5");
+    app.getContactHelper().createContact(newContactData);
     List<ContactData> after = app.getContactHelper().getContactList();
     Assert.assertEquals(after.size(), before.size() + 1);
+
+    before.add(newContactData);
+    Comparator<? super ContactData> ByID = Comparator.comparingInt(ContactData::getId);
+    before.sort(ByID);
+    after.sort(ByID);
+    Assert.assertEquals(before,after);
    }
 
 }

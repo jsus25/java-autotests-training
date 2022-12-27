@@ -3,6 +3,7 @@ package pft.model;
 import java.util.Objects;
 
 public final class ContactData {
+  private int id;
   private final String firstName;
   private final String lastName;
   private final String company;
@@ -21,6 +22,20 @@ public final class ContactData {
     this.group = group;
   }
 
+  public ContactData(int id, String firstName, String lastName, String company, String address, String mobilePhone, String email, String group) {
+    this.id = id;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.company = company;
+    this.address = address;
+    this.mobilePhone = mobilePhone;
+    this.email = email;
+    this.group = group;
+  }
+
+  public int getId() {
+    return id;
+  }
 
   public String getFirstname() {
     return firstName;
@@ -50,22 +65,16 @@ public final class ContactData {
   }
 
   @Override
-  public boolean equals(Object obj) {
-    if (obj == this) return true;
-    if (obj == null || obj.getClass() != this.getClass()) return false;
-    var that = (ContactData) obj;
-    return Objects.equals(this.firstName, that.firstName) &&
-            Objects.equals(this.lastName, that.lastName) &&
-            Objects.equals(this.company, that.company) &&
-            Objects.equals(this.address, that.address) &&
-            Objects.equals(this.mobilePhone, that.mobilePhone) &&
-            Objects.equals(this.email, that.email) &&
-            Objects.equals(this.group, that.group);
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    ContactData that = (ContactData) o;
+    return Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, company, address, mobilePhone, email, group);
+    return Objects.hash(firstName, lastName);
   }
 
   @Override

@@ -56,6 +56,13 @@ public class GroupHelper extends HelperBase {
     submitGroupCreation();
     returnToGroupPage();
   }
+  public void editGroup(int index, GroupData newGroup) {
+    selectElement(index);
+    initEdition();
+    fillGroupForm(newGroup);
+    submitGroupUpdate();
+    returnToGroupPage();
+  }
 
   public List<GroupData> getGroupList() {
     List<GroupData> groups = new ArrayList<>();

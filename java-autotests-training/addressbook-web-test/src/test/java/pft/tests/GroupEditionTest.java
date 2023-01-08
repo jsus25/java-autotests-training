@@ -13,18 +13,18 @@ public class GroupEditionTest extends TestBase{
 
   @BeforeMethod
   public void ensurePreconditions() {
-    app.getNavigationHelper().goToGroupPage();
-    if (! app.getGroupHelper().isThereAGroup()) {
-      app.getGroupHelper().createGroup(new GroupData(null,"group5", "h5", "f5"));
+    app.goTo().groupPage();
+    if (app.group().getList().size() == 0) {
+      app.group().create(new GroupData(null,"group5", "h5", "f5"));
     }
   }
   @Test
   public void testGroupEdition() {
-    List<GroupData> before = app.getGroupHelper().getGroupList();
+    List<GroupData> before = app.group().getList();
     int index = before.size() - 1;
     GroupData newGroup = new GroupData(before.get(index).id(), "group7", "gh10", "gf10");
-    app.getGroupHelper().editGroup(index, newGroup);
-    List<GroupData> after = app.getGroupHelper().getGroupList();
+    app.group().edit(index, newGroup);
+    List<GroupData> after = app.group().getList();
     Assert.assertEquals(after.size(), before.size());
 
     before.remove(index);

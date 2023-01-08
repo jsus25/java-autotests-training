@@ -57,8 +57,8 @@ public class ContactHelper extends HelperBase {
 
   public void submitContactUpdate() { click(By.name("update"));
   }
-  public void createContact(ContactData contact) {
-    navigationHelper.goToContactAddPage();
+  public void create(ContactData contact) {
+    navigationHelper.contactAddPage();
     if (isGroupPresent(contact.getGroup())) {
       fillContactForm(contact, true);
       submitContactCreation();
@@ -68,17 +68,20 @@ public class ContactHelper extends HelperBase {
     returnToHomePage();
   }
 
-  public void editContact(int index, ContactData newContactData) {
+  public void edit(int index, ContactData newContactData) {
     initEdition(index);
     fillContactForm(newContactData, false);
     submitContactUpdate();
-    navigationHelper.goToHomePage();
+    navigationHelper.homePage();
   }
 
-
-  public boolean isThereAContact() {
-    return (isElementPresent(By.name("selected[]")));
+  public void delete(int index) {
+    selectContact(index);
+    deleteContact();
+    confirmAlert();
+    navigationHelper.homePage();
   }
+
   public boolean isGroupPresent(String group) {
     try {
       new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(group);
@@ -88,7 +91,7 @@ public class ContactHelper extends HelperBase {
     }
   }
 
-  public List<ContactData> getContactList() {
+  public List<ContactData> getList() {
     List<ContactData> contacts = new ArrayList<>();
     List<WebElement> elements = driver.findElements(By.name("entry"));
     for (WebElement element : elements) {

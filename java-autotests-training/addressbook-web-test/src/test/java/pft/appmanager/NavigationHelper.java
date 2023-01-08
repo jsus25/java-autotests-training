@@ -9,21 +9,21 @@ public class NavigationHelper extends HelperBase{
     super(driver);
   }
 
-  public void goToGroupPage() {
+  public void groupPage() {
     if (isElementPresent(By.name("new")) && driver.findElement(By.tagName("h1")).getText().equals("Groups")) {
       return;
     }
     click(By.linkText("groups"));
   }
 
-  public void goToContactAddPage() {
+  public void contactAddPage() {
     if (isElementPresent(By.linkText("Enter"))) {
       return;
     }
     click(By.linkText("add new"));
   }
 
-  public void goToHomePage() {
+  public void homePage() {
     if (isElementPresent(By.id("maintable"))) {
       return;
     }

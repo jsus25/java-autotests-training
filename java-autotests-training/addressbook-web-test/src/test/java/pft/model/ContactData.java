@@ -13,6 +13,7 @@ public final class ContactData {
   private final String group;
 
   public ContactData(String firstName, String lastName, String company, String address, String mobilePhone, String email, String group) {
+    this.id = Integer.MAX_VALUE;
     this.firstName = firstName;
     this.lastName = lastName;
     this.company = company;

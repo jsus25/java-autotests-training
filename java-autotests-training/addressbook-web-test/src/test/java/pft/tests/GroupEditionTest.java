@@ -4,9 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pft.model.GroupData;
-
-import java.util.Comparator;
-import java.util.List;
+import java.util.Set;
 
 
 public class GroupEditionTest extends TestBase{
@@ -14,24 +12,21 @@ public class GroupEditionTest extends TestBase{
   @BeforeMethod
   public void ensurePreconditions() {
     app.goTo().groupPage();
-    if (app.group().getList().size() == 0) {
+    if (app.group().getAll().size() == 0) {
       app.group().create(new GroupData(null,"group5", "h5", "f5"));
     }
   }
   @Test
   public void testGroupEdition() {
-    List<GroupData> before = app.group().getList();
-    int index = before.size() - 1;
-    GroupData newGroup = new GroupData(before.get(index).id(), "group7", "gh10", "gf10");
-    app.group().edit(index, newGroup);
-    List<GroupData> after = app.group().getList();
+    Set<GroupData> before = app.group().getAll();
+    GroupData editedGroup = before.iterator().next(); //возвращает произвольный элемент массива (группу)
+    GroupData group = new GroupData(editedGroup.id(), "group7", "gh10", "gf10");
+    app.group().edit(group);
+    Set<GroupData> after = app.group().getAll();
     Assert.assertEquals(after.size(), before.size());
 
-    before.remove(index);
-    before.add(newGroup);
-    Comparator<? super GroupData> byID = Comparator.comparingInt(GroupData::id);
-    before.sort(byID);
-    after.sort(byID);
+    before.remove(editedGroup);
+    before.add(group);
     Assert.assertEquals(before, after);
   }
 

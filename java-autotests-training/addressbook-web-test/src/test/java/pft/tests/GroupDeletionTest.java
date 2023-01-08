@@ -4,26 +4,25 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pft.model.GroupData;
-
-import java.util.List;
+import java.util.Set;
 
 public class GroupDeletionTest extends TestBase {
   @BeforeMethod
   public void ensurePreconditions() {
     app.goTo().groupPage();
-    if (app.group().getList().size() == 0) {
+    if (app.group().getAll().size() == 0) {
       app.group().create(new GroupData(null,"group5", "h5", "f5"));
     }
   }
 
   @Test
   public void testGroupDeletion() {
-    List<GroupData> before = app.group().getList();
-    int index = before.size() - 1;
-    app.group().delete(index);
-    List<GroupData> after = app.group().getList();
+    Set<GroupData> before = app.group().getAll();
+    GroupData deletedGroup = before.iterator().next(); //возвращает произвольный элемент массива (группу)
+    app.group().delete(deletedGroup);
+    Set<GroupData> after = app.group().getAll();
     Assert.assertEquals(after.size(), before.size() - 1);
-    before.remove(index);
+    before.remove(deletedGroup);
     Assert.assertEquals(after, before);
   }
 

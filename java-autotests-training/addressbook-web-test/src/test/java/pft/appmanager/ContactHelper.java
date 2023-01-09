@@ -63,6 +63,7 @@ public class ContactHelper extends HelperBase {
     if (isGroupPresent(contact.getGroup())) {
       fillContactForm(contact, true);
       submitContactCreation();
+      contactCache = null;
     } else {
       System.out.println("!!! Couldn't create a contact: Group is absent in DB");
     }
@@ -73,6 +74,7 @@ public class ContactHelper extends HelperBase {
     initEditionById(newContactData.getId());
     fillContactForm(newContactData, false);
     submitContactUpdate();
+    contactCache = null;
     navigationHelper.homePage();
   }
 
@@ -80,6 +82,7 @@ public class ContactHelper extends HelperBase {
     selectContactById(contact.getId());
     deleteContact();
     confirmAlert();
+    contactCache = null;
     navigationHelper.homePage();
   }
 
@@ -92,16 +95,21 @@ public class ContactHelper extends HelperBase {
     }
   }
 
+  private Contacts contactCache = null;
+
    public Contacts getAll() {
-    Contacts contacts = new Contacts();
+     if (contactCache != null) {
+       return new Contacts(contactCache);
+     }
+    contactCache = new Contacts();
     List<WebElement> elements = driver.findElements(By.name("entry"));
     for (WebElement element : elements) {
       String lastName = element.findElement(By.xpath("td[2]")).getText();
       String firstName = element.findElement(By.xpath("td[3]")).getText();
       int id = Integer.parseInt(element.findElement(By.name("selected[]")).getAttribute("id"));
       ContactData contact = new ContactData(id, firstName, lastName, null, null, null, null, null);
-      contacts.add(contact);
+      contactCache.add(contact);
     }
-    return contacts;
+    return new Contacts(contactCache);
   }
 }

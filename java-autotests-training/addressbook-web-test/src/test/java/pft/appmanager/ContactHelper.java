@@ -7,9 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import pft.model.ContactData;
-import java.util.HashSet;
+import pft.model.Contacts;
+
 import java.util.List;
-import java.util.Set;
 
 public class ContactHelper extends HelperBase {
   private final NavigationHelper navigationHelper;
@@ -92,8 +92,8 @@ public class ContactHelper extends HelperBase {
     }
   }
 
-   public Set<ContactData> getAll() {
-    Set<ContactData> contacts = new HashSet<>();
+   public Contacts getAll() {
+    Contacts contacts = new Contacts();
     List<WebElement> elements = driver.findElements(By.name("entry"));
     for (WebElement element : elements) {
       String lastName = element.findElement(By.xpath("td[2]")).getText();

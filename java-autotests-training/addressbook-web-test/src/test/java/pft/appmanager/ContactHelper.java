@@ -7,9 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import pft.model.ContactData;
-
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactHelper extends HelperBase {
   private final NavigationHelper navigationHelper;
@@ -19,14 +19,14 @@ public class ContactHelper extends HelperBase {
     this.navigationHelper = navigationHelper;
   }
 
-  public void deleteContact() {
+  private void deleteContact() {
     click(By.cssSelector(".left:nth-child(8) > input"));
   }
-  public void submitContactCreation() {
+  private void submitContactCreation() {
     click(By.name("submit"));
   }
 
-  public void fillContactForm(ContactData contactData, boolean creation) {
+  private void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"),contactData.getFirstname());
     type(By.name("lastname"),contactData.getLastname());
     type(By.name("company"),contactData.getCompany());
@@ -39,23 +39,24 @@ public class ContactHelper extends HelperBase {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
   }
-  public void selectContact(int index) {
-    driver.findElements(By.name("selected[]")).get(index).click();
+
+  private void selectContactById(int id) {
+    driver.findElement(By.cssSelector("input[id='" + id + "']")).click();
   }
 
-  public void confirmAlert() {
+  private void confirmAlert() {
     //   assertThat(driver.switchTo().alert().getText(), is("Delete 1 addresses?"));
     driver.switchTo().alert().accept();
   }
-  public void returnToHomePage() {
+  private void returnToHomePage() {
     click(By.linkText("home page"));
   }
 
-  public void initEdition(int index) {
-    driver.findElements(By.xpath("/html/body/div/div[4]/form[2]/table/tbody/tr/td[8]")).get(index).click();
+  private void initEditionById(int id) {
+    driver.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
   }
 
-  public void submitContactUpdate() { click(By.name("update"));
+  private void submitContactUpdate() { click(By.name("update"));
   }
   public void create(ContactData contact) {
     navigationHelper.contactAddPage();
@@ -68,21 +69,21 @@ public class ContactHelper extends HelperBase {
     returnToHomePage();
   }
 
-  public void edit(int index, ContactData newContactData) {
-    initEdition(index);
+  public void edit(ContactData newContactData) {
+    initEditionById(newContactData.getId());
     fillContactForm(newContactData, false);
     submitContactUpdate();
     navigationHelper.homePage();
   }
 
-  public void delete(int index) {
-    selectContact(index);
+  public void delete(ContactData contact) {
+    selectContactById(contact.getId());
     deleteContact();
     confirmAlert();
     navigationHelper.homePage();
   }
 
-  public boolean isGroupPresent(String group) {
+  private boolean isGroupPresent(String group) {
     try {
       new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(group);
       return true;
@@ -91,8 +92,8 @@ public class ContactHelper extends HelperBase {
     }
   }
 
-  public List<ContactData> getList() {
-    List<ContactData> contacts = new ArrayList<>();
+   public Set<ContactData> getAll() {
+    Set<ContactData> contacts = new HashSet<>();
     List<WebElement> elements = driver.findElements(By.name("entry"));
     for (WebElement element : elements) {
       String lastName = element.findElement(By.xpath("td[2]")).getText();

@@ -5,7 +5,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pft.model.ContactData;
 import pft.model.Contacts;
-
 import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
@@ -28,9 +27,9 @@ public class ContactEditionTest extends TestBase{
     ContactData editedContact = before.iterator().next();
     ContactData newContactData = new ContactData(editedContact.getId(), "Margo", "Frolova", "SCB", "Academ", "88888888888","mf749@gtkd,ru", null);
     app.contact().edit(newContactData);
+    assertThat(app.contact().count(), equalTo(before.size()));
     Contacts after = app.contact().getAll();
-    assertThat(after.size(), equalTo(before.size()));
-     assertThat(after, equalTo(before.without(editedContact).withAdded(newContactData)));
+    assertThat(after, equalTo(before.without(editedContact).withAdded(newContactData)));
   }
 
 }

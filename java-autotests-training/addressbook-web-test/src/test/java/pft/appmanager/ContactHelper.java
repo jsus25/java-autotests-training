@@ -58,6 +58,11 @@ public class ContactHelper extends HelperBase {
 
   private void submitContactUpdate() { click(By.name("update"));
   }
+
+  public int count() {
+    return driver.findElements(By.name("entry")).size();
+  }
+
   public void create(ContactData contact) {
     navigationHelper.contactAddPage();
     if (isGroupPresent(contact.getGroup())) {

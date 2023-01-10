@@ -1,6 +1,5 @@
 package pft.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pft.model.GroupData;
@@ -25,9 +24,8 @@ public class GroupEditionTest extends TestBase{
     GroupData editedGroup = before.iterator().next(); //возвращает произвольный элемент массива (группу)
     GroupData group = new GroupData(editedGroup.id(), "group7", "gh10", "gf10");
     app.group().edit(group);
+    assertThat(app.group().count(), equalTo(before.size()));
     Groups after = app.group().getAll();
-    Assert.assertEquals(after.size(), before.size());
-    assertThat(after.size(), equalTo(before.size()));
     assertThat(after, equalTo(before.without(editedGroup).withAdded(group)));
   }
 

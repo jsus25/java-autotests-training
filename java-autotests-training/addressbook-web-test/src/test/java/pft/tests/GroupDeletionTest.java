@@ -21,8 +21,8 @@ public class GroupDeletionTest extends TestBase {
     Groups before = app.group().getAll();
     GroupData deletedGroup = before.iterator().next(); //возвращает произвольный элемент массива (группу)
     app.group().delete(deletedGroup);
+    assertThat(app.group().count(), equalTo(before.size() - 1));
     Groups after = app.group().getAll();
-    assertThat(after.size(), equalTo(before.size() - 1));
     assertThat(after, equalTo(before.without(deletedGroup)));
   }
 

@@ -40,7 +40,10 @@ public class GroupHelper extends HelperBase {
     driver.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
 
-  public void submitGroupUpdate() { click(By.name("update"));
+  private void submitGroupUpdate() { click(By.name("update"));}
+
+  public int count() {
+    return driver.findElements(By.name("selected[]")).size();
   }
 
   public void create(GroupData group) {

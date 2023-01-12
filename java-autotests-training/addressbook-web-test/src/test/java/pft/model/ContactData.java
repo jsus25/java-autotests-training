@@ -7,12 +7,16 @@ public final class ContactData {
   private final String firstName;
   private final String lastName;
   private final String company;
+
+
   private final String address;
   private final String homePhone;
   private final String mobilePhone;
   private final String workPhone;
   private final String email;
   private final String group;
+  private String allPhones;
+
 
   public ContactData(String firstName, String lastName, String company, String address, String homePhone, String mobilePhone, String workPhone, String email, String group) {
     this.homePhone = homePhone;
@@ -71,6 +75,27 @@ public final class ContactData {
     return group;
   }
 
+  public String getHomePhone() {
+    return homePhone;
+  }
+
+  public String getWorkPhone() {
+    return workPhone;
+  }
+
+  public String getAllPhones() {
+    return allPhones;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  public void setAllPhones(String allPhones) {
+    this.allPhones = allPhones;
+  }
+
+
   @Override
   public String toString() {
     return "ContactData[" +
@@ -83,9 +108,6 @@ public final class ContactData {
             "group=" + group + ']';
   }
 
-  public void setId(int id) {
-    this.id = id;
-  }
 
   @Override
   public boolean equals(Object o) {

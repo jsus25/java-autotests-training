@@ -102,7 +102,7 @@ public class ContactHelper extends HelperBase {
 
   private Contacts contactCache = null;
 
-   public Contacts getAll() {
+  public Contacts getAll() {
      if (contactCache != null) {
        return new Contacts(contactCache);
      }
@@ -111,8 +111,10 @@ public class ContactHelper extends HelperBase {
     for (WebElement element : elements) {
       String lastName = element.findElement(By.xpath("td[2]")).getText();
       String firstName = element.findElement(By.xpath("td[3]")).getText();
+      String allPhones = element.findElement(By.xpath("td[6]")).getText();
       int id = Integer.parseInt(element.findElement(By.name("selected[]")).getAttribute("id"));
       ContactData contact = new ContactData(id, firstName, lastName, null, null, null, null, null, null, null);
+      contact.setAllPhones(allPhones);
       contactCache.add(contact);
     }
     return new Contacts(contactCache);

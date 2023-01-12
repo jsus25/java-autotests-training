@@ -21,7 +21,8 @@ public class ContactEditionTest extends TestBase{
   public void testContactEdition() {
     Contacts before = app.contact().getAll();
     ContactData editedContact = before.iterator().next();
-    ContactData newContactData = new ContactData(editedContact.getId(), "Margo", "Frolova", "SCB", "Academ", null, "88888888888", null, "mf749@gtkd,ru", null);
+    ContactData newContactData = new ContactData(editedContact.getId(), "Margo", "Frolova", "SCB", "Academ",
+            null, "88888888888", null, "mf749@gtkd,ru", null, null, null);
     app.contact().edit(newContactData);
     assertThat(app.contact().count(), equalTo(before.size()));
     Contacts after = app.contact().getAll();

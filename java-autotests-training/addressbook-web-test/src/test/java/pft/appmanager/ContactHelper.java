@@ -111,10 +111,13 @@ public class ContactHelper extends HelperBase {
     for (WebElement element : elements) {
       String lastName = element.findElement(By.xpath("td[2]")).getText();
       String firstName = element.findElement(By.xpath("td[3]")).getText();
+      String allEmails = element.findElement(By.xpath("td[5]")).getText();
       String allPhones = element.findElement(By.xpath("td[6]")).getText();
       int id = Integer.parseInt(element.findElement(By.name("selected[]")).getAttribute("id"));
-      ContactData contact = new ContactData(id, firstName, lastName, null, null, null, null, null, null, null);
+      ContactData contact = new ContactData(id, firstName, lastName, null, null,
+              null, null,null, null, null, null, null);
       contact.setAllPhones(allPhones);
+      contact.setAllEmails(allEmails);
       contactCache.add(contact);
     }
     return new Contacts(contactCache);
@@ -127,5 +130,9 @@ public class ContactHelper extends HelperBase {
      String homePhone = driver.findElement(By.name("home")).getAttribute("value");
      String mobilePhone = driver.findElement(By.name("mobile")).getAttribute("value");
      String workPhone = driver.findElement(By.name("work")).getAttribute("value");
-     return new ContactData(contact.getId(), firstname, lastname, null, null, homePhone, mobilePhone, workPhone, null, null);}
+     String email = driver.findElement(By.name("email")).getAttribute("value");
+     String email2 = driver.findElement(By.name("email2")).getAttribute("value");
+     String email3 = driver.findElement(By.name("email3")).getAttribute("value");
+     return new ContactData(contact.getId(), firstname, lastname, null, null,
+             homePhone, mobilePhone, workPhone, email, email2, email3, null);}
 }

@@ -7,15 +7,16 @@ public final class ContactData {
   private final String firstName;
   private final String lastName;
   private final String company;
-
-
   private final String address;
   private final String homePhone;
   private final String mobilePhone;
   private final String workPhone;
   private final String email;
+  private String email2;
+  private String email3;
   private final String group;
   private String allPhones;
+  private String allEmails;
 
 
   public ContactData(String firstName, String lastName, String company, String address, String homePhone, String mobilePhone, String workPhone, String email, String group) {
@@ -31,7 +32,7 @@ public final class ContactData {
     this.group = group;
   }
 
-  public ContactData(int id, String firstName, String lastName, String company, String address, String homePhone, String mobilePhone, String workPhone, String email, String group) {
+  public ContactData(int id, String firstName, String lastName, String company, String address, String homePhone, String mobilePhone, String workPhone, String email, String email2, String email3, String group) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -41,6 +42,8 @@ public final class ContactData {
     this.mobilePhone = mobilePhone;
     this.workPhone = workPhone;
     this.email = email;
+    this.email2 = email2;
+    this.email3 = email3;
     this.group = group;
   }
 
@@ -70,6 +73,13 @@ public final class ContactData {
   public String getEmail() {
     return email;
   }
+  public String getEmail2() {
+    return email2;
+  }
+
+  public String getEmail3() {
+    return email3;
+  }
 
   public String getGroup() {
     return group;
@@ -87,12 +97,20 @@ public final class ContactData {
     return allPhones;
   }
 
+  public String getAllEmails() {
+    return allEmails;
+  }
+
   public void setId(int id) {
     this.id = id;
   }
 
   public void setAllPhones(String allPhones) {
     this.allPhones = allPhones;
+  }
+
+  public void setAllEmails(String allEmails) {
+    this.allEmails = allEmails;
   }
 
 

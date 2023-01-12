@@ -1,13 +1,9 @@
 package pft.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pft.model.ContactData;
 import pft.model.Contacts;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Set;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -17,7 +13,7 @@ public class ContactEditionTest extends TestBase{
   public void ensurePreconditions() {
     app.goTo().homePage();
     if (app.contact().getAll().size() == 0) {
-      app.contact().create(new ContactData("Juliett", "Suslenkova", "Corporation", null, "89567845736",null, "group5"));
+      app.contact().create(new ContactData("Juliett", "Suslenkova", "Corporation", null, null, "89567845736", null, null, "group5"));
     }
   }
 
@@ -25,7 +21,7 @@ public class ContactEditionTest extends TestBase{
   public void testContactEdition() {
     Contacts before = app.contact().getAll();
     ContactData editedContact = before.iterator().next();
-    ContactData newContactData = new ContactData(editedContact.getId(), "Margo", "Frolova", "SCB", "Academ", "88888888888","mf749@gtkd,ru", null);
+    ContactData newContactData = new ContactData(editedContact.getId(), "Margo", "Frolova", "SCB", "Academ", null, "88888888888", null, "mf749@gtkd,ru", null);
     app.contact().edit(newContactData);
     assertThat(app.contact().count(), equalTo(before.size()));
     Contacts after = app.contact().getAll();

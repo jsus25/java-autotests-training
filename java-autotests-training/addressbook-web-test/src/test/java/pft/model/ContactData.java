@@ -8,11 +8,15 @@ public final class ContactData {
   private final String lastName;
   private final String company;
   private final String address;
+  private final String homePhone;
   private final String mobilePhone;
+  private final String workPhone;
   private final String email;
   private final String group;
 
-  public ContactData(String firstName, String lastName, String company, String address, String mobilePhone, String email, String group) {
+  public ContactData(String firstName, String lastName, String company, String address, String homePhone, String mobilePhone, String workPhone, String email, String group) {
+    this.homePhone = homePhone;
+    this.workPhone = workPhone;
     this.id = Integer.MAX_VALUE;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -23,13 +27,15 @@ public final class ContactData {
     this.group = group;
   }
 
-  public ContactData(int id, String firstName, String lastName, String company, String address, String mobilePhone, String email, String group) {
+  public ContactData(int id, String firstName, String lastName, String company, String address, String homePhone, String mobilePhone, String workPhone, String email, String group) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
     this.company = company;
     this.address = address;
+    this.homePhone = homePhone;
     this.mobilePhone = mobilePhone;
+    this.workPhone = workPhone;
     this.email = email;
     this.group = group;
   }

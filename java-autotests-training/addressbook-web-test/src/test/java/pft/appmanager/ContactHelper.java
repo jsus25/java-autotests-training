@@ -53,7 +53,7 @@ public class ContactHelper extends HelperBase {
   }
 
   private void initEditionById(int id) {
-    driver.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
+    driver.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
   }
 
   private void submitContactUpdate() { click(By.name("update"));
@@ -112,9 +112,18 @@ public class ContactHelper extends HelperBase {
       String lastName = element.findElement(By.xpath("td[2]")).getText();
       String firstName = element.findElement(By.xpath("td[3]")).getText();
       int id = Integer.parseInt(element.findElement(By.name("selected[]")).getAttribute("id"));
-      ContactData contact = new ContactData(id, firstName, lastName, null, null, null, null, null);
+      ContactData contact = new ContactData(id, firstName, lastName, null, null, null, null, null, null, null);
       contactCache.add(contact);
     }
     return new Contacts(contactCache);
   }
+
+  public ContactData infoFromEditForm(ContactData contact){
+     initEditionById(contact.getId());
+     String firstname = driver.findElement(By.name("firstname")).getAttribute("value");
+     String lastname = driver.findElement(By.name("lastname")).getAttribute("value");
+     String homePhone = driver.findElement(By.name("home")).getAttribute("value");
+     String mobilePhone = driver.findElement(By.name("mobile")).getAttribute("value");
+     String workPhone = driver.findElement(By.name("work")).getAttribute("value");
+     return new ContactData(contact.getId(), firstname, lastname, null, null, homePhone, mobilePhone, workPhone, null, null);}
 }

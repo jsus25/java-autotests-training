@@ -12,11 +12,11 @@ import pft.model.Contacts;
 import java.util.List;
 
 public class ContactHelper extends HelperBase {
-  private final NavigationHelper navigationHelper;
+  private final NavigationHelper goTo;
 
-  public ContactHelper(WebDriver driver, NavigationHelper navigationHelper) {
+  public ContactHelper(WebDriver driver, NavigationHelper goTo) {
     super(driver);
-    this.navigationHelper = navigationHelper;
+    this.goTo = goTo;
   }
 
   private void deleteContact() {
@@ -64,7 +64,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void create(ContactData contact) {
-    navigationHelper.contactAddPage();
+    goTo.contactAddPage();
     if (isGroupPresent(contact.getGroup())) {
       fillContactForm(contact, true);
       submitContactCreation();
@@ -80,7 +80,7 @@ public class ContactHelper extends HelperBase {
     fillContactForm(newContactData, false);
     submitContactUpdate();
     contactCache = null;
-    navigationHelper.homePage();
+    goTo.homePage();
   }
 
   public void delete(ContactData contact) {
@@ -88,7 +88,7 @@ public class ContactHelper extends HelperBase {
     deleteContact();
     confirmAlert();
     contactCache = null;
-    navigationHelper.homePage();
+    goTo.homePage();
   }
 
   private boolean isGroupPresent(String group) {
@@ -127,12 +127,20 @@ public class ContactHelper extends HelperBase {
      initEditionById(contact.getId());
      String firstname = driver.findElement(By.name("firstname")).getAttribute("value");
      String lastname = driver.findElement(By.name("lastname")).getAttribute("value");
+     String company = driver.findElement(By.name("company")).getAttribute("value");
+     String address = driver.findElement(By.name("address")).getAttribute("value");
      String homePhone = driver.findElement(By.name("home")).getAttribute("value");
      String mobilePhone = driver.findElement(By.name("mobile")).getAttribute("value");
      String workPhone = driver.findElement(By.name("work")).getAttribute("value");
      String email = driver.findElement(By.name("email")).getAttribute("value");
      String email2 = driver.findElement(By.name("email2")).getAttribute("value");
      String email3 = driver.findElement(By.name("email3")).getAttribute("value");
-     return new ContactData(contact.getId(), firstname, lastname, null, null,
+     return new ContactData(contact.getId(), firstname, lastname, company, address,
              homePhone, mobilePhone, workPhone, email, email2, email3, null);}
+
+  public String contentFromInfoPage(ContactData contact) {
+    goTo.homePage();
+    driver.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", contact.getId()))).click();
+    return driver.findElement(By.id("content")).getText();
+  }
 }

@@ -27,8 +27,8 @@ public class ContactEmailTest extends TestBase{
             .map(ContactEmailTest::clear)
             .collect(Collectors.joining("\n"));
   }
-  private static String clear(String phone) {
-    return phone.replaceAll("\\s", "");
+  private static String clear(String email) {
+    return email.replaceAll("\\s", "");
   }
 
 

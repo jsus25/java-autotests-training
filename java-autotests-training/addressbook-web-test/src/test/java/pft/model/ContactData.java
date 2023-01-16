@@ -1,5 +1,6 @@
 package pft.model;
 
+import java.io.File;
 import java.util.Objects;
 
 public final class ContactData {
@@ -15,9 +16,9 @@ public final class ContactData {
   private String email2;
   private String email3;
   private final String group;
+  private File photo;
   private String allPhones;
   private String allEmails;
-
 
   public ContactData(String firstName, String lastName, String company, String address, String homePhone, String mobilePhone, String workPhone, String email, String group) {
     this.homePhone = homePhone;
@@ -50,59 +51,48 @@ public final class ContactData {
   public int getId() {
     return id;
   }
-
-  public String getFirstname() {
-    return firstName;
-  }
+  public String getFirstname() {return firstName;}
   public String getLastname() {
     return lastName;
   }
-
   public String getCompany() {
     return company;
   }
-
-  public String getAddress() {
-    return address;
-  }
-
+  public String getAddress() {return address;}
   public String getMobilePhone() {
     return mobilePhone;
   }
-
-  public String getEmail() {
-    return email;
-  }
+  public String getEmail() {return email;}
   public String getEmail2() {
     return email2;
   }
-
   public String getEmail3() {
     return email3;
   }
-
   public String getGroup() {
     return group;
   }
-
   public String getHomePhone() {
     return homePhone;
   }
-
   public String getWorkPhone() {
     return workPhone;
   }
+  public File getPhoto() {return photo;}
+
 
   public String getAllPhones() {
     return allPhones;
   }
-
-  public String getAllEmails() {
-    return allEmails;
-  }
+  public String getAllEmails() {return allEmails;}
 
   public void setId(int id) {
     this.id = id;
+  }
+
+  public ContactData withPhoto(File photo) {
+    this.photo = photo;
+    return this;
   }
 
   public void setAllPhones(String allPhones) {

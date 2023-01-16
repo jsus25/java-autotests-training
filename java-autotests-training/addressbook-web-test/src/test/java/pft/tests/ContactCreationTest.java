@@ -4,6 +4,8 @@ import org.testng.annotations.Test;
 import pft.model.ContactData;
 import pft.model.Contacts;
 
+import java.io.File;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -13,13 +15,23 @@ public class ContactCreationTest extends TestBase {
   public void testContactCreation() {
     app.goTo().homePage();
     Contacts before = app.contact().getAll();
-    ContactData newContactData = new ContactData("Juliett", "Suslenkova", "Corporation", null, null, "89567845736", "+7(913) 098 54-54", null, "group5");
+    File photo = new File("src/test/resources/portret.jpg");
+    ContactData newContactData = new ContactData("Juliett", "Suslenkova", "Corporation", null, null, "89567845736", "+7(913) 098 54-54", null, "group5").withPhoto(photo);
     app.contact().create(newContactData);
     assertThat(app.contact().count(), equalTo(before.size() + 1));
     Contacts after = app.contact().getAll();
     int newElementId = after.stream().mapToInt(ContactData::getId).max().getAsInt();
     newContactData.setId(newElementId);
     assertThat(after, equalTo(before.withAdded(newContactData)));
-   }
+  }
+
+  @Test (enabled = false) //вспомогательный тест - текущей директории, и что необходимый файл находится по заданному пути
+  public void testCurrentDir() {
+    File currentDir = new File(".");
+    System.out.println(currentDir.getAbsolutePath());
+    File photo = new File("src/test/resources/portret.jpg");
+    System.out.println(photo.getAbsolutePath());
+    System.out.println(photo.exists());
+  }
 
 }

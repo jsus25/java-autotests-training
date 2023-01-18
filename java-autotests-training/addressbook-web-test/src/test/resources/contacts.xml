@@ -1,0 +1,16 @@
+<list>
+  <pft.model.ContactData>
+    <id>2147483647</id>
+    <firstName>Ivan0</firstName>
+    <lastName>Balabanov0</lastName>
+    <mobilePhone>89567845730</mobilePhone>
+    <workPhone>79130985450</workPhone>
+  </pft.model.ContactData>
+  <pft.model.ContactData>
+    <id>2147483647</id>
+    <firstName>Ivan1</firstName>
+    <lastName>Balabanov1</lastName>
+    <mobilePhone>89567845731</mobilePhone>
+    <workPhone>79130985451</workPhone>
+  </pft.model.ContactData>
+</list>

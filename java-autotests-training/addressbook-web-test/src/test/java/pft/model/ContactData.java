@@ -29,7 +29,7 @@ public final class ContactData {
   private String email3;
   @Expose
   private final String group;
-  private File photo;
+  private transient File photo;  //игнорировать при сериализации
   private String allPhones;
   private String allEmails;
 

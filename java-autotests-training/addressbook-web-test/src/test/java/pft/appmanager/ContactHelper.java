@@ -33,9 +33,12 @@ public class ContactHelper extends HelperBase {
     type(By.name("company"),contactData.getCompany());
     type(By.name("address"),contactData.getAddress());
     type(By.name("mobile"),contactData.getMobilePhone());
+    type(By.name("work"),contactData.getWorkPhone());
     type(By.name("email"),contactData.getEmail());
     if (creation) {
-      new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      if (contactData.getGroup() != null) {
+        new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      }
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
@@ -66,13 +69,15 @@ public class ContactHelper extends HelperBase {
 
   public void create(ContactData contact) {
     goTo.contactAddPage();
-    if (isGroupPresent(contact.getGroup())) {
-      fillContactForm(contact, true);
-      submitContactCreation();
-      contactCache = null;
-    } else {
-      System.out.println("!!! Couldn't create a contact: Group is absent in DB");
+    if (contact.getGroup() != null) {
+      if (!isGroupPresent(contact.getGroup())) {
+        System.out.println("!!! Couldn't create a contact: Group is absent in DB");
+        return;
+      }
     }
+    fillContactForm(contact, true);
+    submitContactCreation();
+    contactCache = null;
     returnToHomePage();
   }
 

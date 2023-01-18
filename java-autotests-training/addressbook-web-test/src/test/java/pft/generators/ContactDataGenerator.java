@@ -26,7 +26,7 @@ public class ContactDataGenerator {
     for (int i = 0; i < count; i++) {
       ContactData contact = new ContactData(String.format("Ivan%s", i), String.format("Balabanov%s", i),
               null, null, null, String.format("8956784573%s", i),
-              String.format("7913098545%s", i), null, null);
+              String.format("+7(913)098 54-5%s", i), null, null);
       contacts.add(contact);
     }
     return contacts;

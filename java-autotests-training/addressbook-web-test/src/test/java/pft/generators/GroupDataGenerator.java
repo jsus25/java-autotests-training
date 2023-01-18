@@ -41,18 +41,18 @@ public class GroupDataGenerator {
   private static void saveAsJson(List<GroupData> groups, File file) throws IOException {
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     String json = gson.toJson(groups);
-    Writer writer = new FileWriter(file);
-    writer.write(json);
-    writer.close();
+    try ( Writer writer = new FileWriter(file)) {   //обернуто в try - для автоматического закрытия файла
+      writer.write(json);
+    }
   }
 
   private static void saveAsXml(List<GroupData> groups, File file) throws IOException {
     XStream xStream = new XStream();
     xStream.alias("group", GroupData.class);   //необязательное определение названия полей, чтобы красиво называлось
     String xml = xStream.toXML(groups);
-    Writer writer = new FileWriter(file);
-    writer.write(xml);
-    writer.close();
+    try ( Writer writer = new FileWriter(file)) {   //обернуто в try - для автоматического закрытия файла
+      writer.write(xml);
+    }
   }
 
 

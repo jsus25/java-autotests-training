@@ -20,17 +20,18 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class ContactCreationTest extends TestBase {
 
   @DataProvider
-  public Iterator<Object[]> validContactJson() throws IOException {   //пока не работает
-    BufferedReader reader = new BufferedReader(new FileReader("src/test/resources/contacts.json"));
-    String json = "";
-    String line = reader.readLine();
-    while (line != null) {
-      json += line;
-      line = reader.readLine();
+  public Iterator<Object[]> validContactJson() throws IOException {
+    try (BufferedReader reader = new BufferedReader(new FileReader("src/test/resources/contacts.json"))) {
+      String json = "";
+      String line = reader.readLine();
+      while (line != null) {
+        json += line;
+        line = reader.readLine();
+      }
+      Gson gson = new Gson();
+      List<ContactData> contacts = gson.fromJson(json, new TypeToken<List<ContactData>>(){}.getType());  //"new TypeToken<List<GroupData>>(){}.getType()" = List<GroupData>.class
+      return contacts.stream().map(g -> new Object[]{g}).toList().iterator();
     }
-    Gson gson = new Gson();
-    List<ContactData> contacts = gson.fromJson(json, new TypeToken<List<ContactData>>(){}.getType());  //"new TypeToken<List<GroupData>>(){}.getType()" = List<GroupData>.class
-    return contacts.stream().map(g -> new Object[]{g}).toList().iterator();
   }
 
   @Test(dataProvider = "validContactJson")

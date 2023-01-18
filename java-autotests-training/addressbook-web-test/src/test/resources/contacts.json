@@ -10,5 +10,11 @@
     "lastName": "Balabanov1",
     "mobilePhone": "89567845731",
     "workPhone": "+7(913)098 54-51"
+  },
+  {
+    "firstName": "Ivan2",
+    "lastName": "Balabanov2",
+    "mobilePhone": "89567845732",
+    "workPhone": "+7(913)098 54-52"
   }
 ]

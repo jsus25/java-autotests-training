@@ -17,4 +17,16 @@
     <header>header 2</header>
     <footer>footer 2</footer>
   </group>
+  <group>
+    <id>3</id>
+    <name>group 3</name>
+    <header>header 3</header>
+    <footer>footer 3</footer>
+  </group>
+  <group>
+    <id>4</id>
+    <name>group 4</name>
+    <header>header 4</header>
+    <footer>footer 4</footer>
+  </group>
 </list>

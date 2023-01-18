@@ -25,7 +25,7 @@ public class GroupDataGenerator {
   private static List<GroupData> generateGroups(int count) {
     List<GroupData> groups = new ArrayList<>();
     for (int i = 0; i < count; i++) {
-      GroupData group = new GroupData(null, String.format("group %s",i),String.format("header %s",i), String.format("footer %s",i));
+      GroupData group = new GroupData(i, String.format("group %s",i),String.format("header %s",i), String.format("footer %s",i));
       groups.add(group);
     }
     return groups;

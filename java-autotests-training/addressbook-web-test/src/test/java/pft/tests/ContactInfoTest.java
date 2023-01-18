@@ -17,7 +17,7 @@ public class ContactInfoTest extends TestBase{
     ContactData contact = app.contact().getAll().iterator().next();  //выбрали какой-то контакт
     ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
 
-    assertThat(app.contact().contentFromInfoPage(contact).replaceAll("\n\n\nMember of: group5", ""),
+    assertThat(app.contact().contentFromInfoPage(contact).replaceAll("\n\n\nMember of: .*", ""),
             equalTo(mergeAll(contactInfoFromEditForm)));
   }
 

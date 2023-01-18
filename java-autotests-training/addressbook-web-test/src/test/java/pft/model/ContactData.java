@@ -1,20 +1,33 @@
 package pft.model;
 
+import com.google.gson.annotations.Expose;
+
 import java.io.File;
 import java.util.Objects;
 
 public final class ContactData {
   private int id;
+  @Expose  //для библиотеки gson, чтобы игнорировать при сериализации все поля кроме помеченных этой аннотацией
   private final String firstName;
+  @Expose
   private final String lastName;
+  @Expose
   private final String company;
+  @Expose
   private final String address;
+  @Expose
   private final String homePhone;
+  @Expose
   private final String mobilePhone;
+  @Expose
   private final String workPhone;
+  @Expose
   private final String email;
+  @Expose
   private String email2;
+  @Expose
   private String email3;
+  @Expose
   private final String group;
   private File photo;
   private String allPhones;

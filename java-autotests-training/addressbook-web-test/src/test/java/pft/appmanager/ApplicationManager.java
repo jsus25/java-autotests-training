@@ -7,9 +7,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Objects;
+import java.util.Properties;
 
 public class ApplicationManager {
+  private final Properties properties;
   protected WebDriver driver;
   private NavigationHelper navigationHelper;
   private ContactHelper contactHelper;
@@ -19,9 +23,13 @@ public class ApplicationManager {
 
   public ApplicationManager(String browser) {
     this.browser = browser;
+    properties = new Properties();
   }
 
-  public void init() {
+  public void init() throws IOException {
+    String target = System.getProperty("target", "local");
+    properties.load(new FileReader(String.format("src/test/resources/%s.properties", target)));
+
     if (Objects.equals(browser, "CHROME")) {
       driver = new ChromeDriver();
     } else if (Objects.equals(browser, "FIREFOX")) {
@@ -31,13 +39,13 @@ public class ApplicationManager {
     }
 
     js = (JavascriptExecutor) driver;
-    driver.get("http://localhost/addressbook/");
+    driver.get(properties.getProperty("web.baseUrl"));
     driver.manage().window().setSize(new Dimension(1198, 804));
     groupHelper = new GroupHelper(driver);
     navigationHelper = new NavigationHelper(driver);
     contactHelper = new ContactHelper(driver, navigationHelper);
     SessionHelper sessionHelper = new SessionHelper(driver);
-    sessionHelper.login("admin", "secret");
+    sessionHelper.login(properties.getProperty("web.adminLogin"), properties.getProperty("web.adminPass"));
   }
 
   public void stop() {

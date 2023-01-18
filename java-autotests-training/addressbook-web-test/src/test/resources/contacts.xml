@@ -4,13 +4,34 @@
     <firstName>Ivan0</firstName>
     <lastName>Balabanov0</lastName>
     <mobilePhone>89567845730</mobilePhone>
-    <workPhone>79130985450</workPhone>
+    <workPhone>+7(913)098 54-50</workPhone>
   </pft.model.ContactData>
   <pft.model.ContactData>
     <id>2147483647</id>
     <firstName>Ivan1</firstName>
     <lastName>Balabanov1</lastName>
     <mobilePhone>89567845731</mobilePhone>
-    <workPhone>79130985451</workPhone>
+    <workPhone>+7(913)098 54-51</workPhone>
+  </pft.model.ContactData>
+  <pft.model.ContactData>
+    <id>2147483647</id>
+    <firstName>Ivan2</firstName>
+    <lastName>Balabanov2</lastName>
+    <mobilePhone>89567845732</mobilePhone>
+    <workPhone>+7(913)098 54-52</workPhone>
+  </pft.model.ContactData>
+  <pft.model.ContactData>
+    <id>2147483647</id>
+    <firstName>Ivan3</firstName>
+    <lastName>Balabanov3</lastName>
+    <mobilePhone>89567845733</mobilePhone>
+    <workPhone>+7(913)098 54-53</workPhone>
+  </pft.model.ContactData>
+  <pft.model.ContactData>
+    <id>2147483647</id>
+    <firstName>Ivan4</firstName>
+    <lastName>Balabanov4</lastName>
+    <mobilePhone>89567845734</mobilePhone>
+    <workPhone>+7(913)098 54-54</workPhone>
   </pft.model.ContactData>
 </list>

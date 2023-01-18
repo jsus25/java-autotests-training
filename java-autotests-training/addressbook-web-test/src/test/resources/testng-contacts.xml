@@ -1,0 +1,10 @@
+<suite name="Suite1" verbose="1" >
+   <test name="Contacts">
+        <classes>
+            <class name="pft.tests.ContactCreationTest"/>
+            <class name="pft.tests.ContactEditionTest"/>
+            <class name="pft.tests.ContactDeletionTest"/>
+            <class name="pft.tests.ContactInfoTest"/>
+        </classes>
+    </test>
+</suite>

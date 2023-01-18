@@ -21,6 +21,14 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.10.1'
 }
 
-test {
-    useTestNG()
+task testContacts(type: Test) {
+    useTestNG(){
+        suites 'src/test/resources/testng-contacts.xml'
+    }
+}
+
+task testGroups(type: Test) {
+    useTestNG(){
+        suites 'src/test/resources/testng-groups.xml'
+    }
 }

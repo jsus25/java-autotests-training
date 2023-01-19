@@ -10443,3 +10443,11 @@ java.net.SocketException: Connection reset
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
+3966 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreation with parameters [ContactData[first_name=Ivan0, last_name=Balabanov0, company=null, address=null, mobile_phone=89567845730, email=null, group=null]]
+9758 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreation
+9761 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreation with parameters [ContactData[first_name=Ivan1, last_name=Balabanov1, company=null, address=null, mobile_phone=89567845731, email=null, group=null]]
+13859 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreation
+13861 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreation with parameters [ContactData[first_name=Ivan2, last_name=Balabanov2, company=null, address=null, mobile_phone=89567845732, email=null, group=null]]
+18061 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreation
+18065 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreationWithPhotoAndGroup with parameters []
+22694 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreationWithPhotoAndGroup

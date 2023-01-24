@@ -1,36 +1,59 @@
 package pft.model;
 
 import com.google.gson.annotations.Expose;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
 
+@Entity
+@Table(name = "addressbook")
 public final class ContactData {
+  @Id
+  @Column
   private int id;
   @Expose  //для библиотеки gson, чтобы игнорировать при сериализации все поля кроме помеченных этой аннотацией
-  private final String firstName;
+  @Column
+  private String firstName;
   @Expose
-  private final String lastName;
+  @Column
+  private String lastName;
   @Expose
-  private final String company;
+  private String company;
   @Expose
-  private final String address;
+  @Type(type = "text")
+  private String address;
   @Expose
-  private final String homePhone;
+  @Column(name = "home")
+  @Type(type = "text")
+  private String homePhone;
   @Expose
-  private final String mobilePhone;
+  @Column(name = "mobile")
+  @Type(type = "text")
+  private String mobilePhone;
   @Expose
-  private final String workPhone;
+  @Column(name = "work")
+  @Type(type = "text")
+  private String workPhone;
   @Expose
-  private final String email;
+  @Type(type = "text")
+  private String email;
   @Expose
+  @Type(type = "text")
   private String email2;
   @Expose
+  @Type(type = "text")
   private String email3;
   @Expose
-  private final String group;
-  private transient File photo;  //игнорировать при сериализации
+  @Transient
+  private String group;
+  @Column
+  @Type(type = "text")
+  private String photo;
+  @Transient
   private String allPhones;
+  @Transient
   private String allEmails;
 
   public ContactData(String firstName, String lastName, String company, String address, String homePhone, String mobilePhone, String workPhone, String email, String group) {
@@ -59,6 +82,9 @@ public final class ContactData {
     this.email2 = email2;
     this.email3 = email3;
     this.group = group;
+  }
+
+  public ContactData() {
   }
 
   public int getId() {
@@ -91,7 +117,7 @@ public final class ContactData {
   public String getWorkPhone() {
     return workPhone;
   }
-  public File getPhoto() {return photo;}
+  public File getPhoto() {return new File(photo);}
 
 
   public String getAllPhones() {
@@ -104,7 +130,7 @@ public final class ContactData {
   }
 
   public ContactData withPhoto(File photo) {
-    this.photo = photo;
+    this.photo = photo.getPath();
     return this;
   }
 

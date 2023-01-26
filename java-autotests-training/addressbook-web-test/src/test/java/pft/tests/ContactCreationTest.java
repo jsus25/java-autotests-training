@@ -37,10 +37,10 @@ public class ContactCreationTest extends TestBase {
   @Test(dataProvider = "validContactJson")
   public void testContactCreation(ContactData contact) {
     app.goTo().homePage();
-    Contacts before = app.contact().getAll();
+    Contacts before = app.db().contacts();
     app.contact().create(contact);
     assertThat(app.contact().count(), equalTo(before.size() + 1));
-    Contacts after = app.contact().getAll();
+    Contacts after = app.db().contacts();
     int newElementId = after.stream().mapToInt(ContactData::getId).max().getAsInt();
     contact.setId(newElementId);
     assertThat(after, equalTo(before.withAdded(contact)));
@@ -49,12 +49,12 @@ public class ContactCreationTest extends TestBase {
   @Test
   public void testContactCreationWithPhotoAndGroup() {
     app.goTo().homePage();
-    Contacts before = app.contact().getAll();
+    Contacts before = app.db().contacts();
     File photo = new File("src/test/resources/portret.jpg");
-    ContactData newContactData = new ContactData("Pamella", "Andersen", "Corporation", null, null, "89567845736", "+7(913) 098 54-54", null, "group 0").withPhoto(photo);
+    ContactData newContactData = new ContactData("Pamella", "Andersen", "Corporation", "", "", "89567845736", "+7(913) 098 54-54", "", "group 0").withPhoto(photo);
     app.contact().create(newContactData);
     assertThat(app.contact().count(), equalTo(before.size() + 1));
-    Contacts after = app.contact().getAll();
+    Contacts after = app.db().contacts();
     int newElementId = after.stream().mapToInt(ContactData::getId).max().getAsInt();
     newContactData.setId(newElementId);
     assertThat(after, equalTo(before.withAdded(newContactData)));

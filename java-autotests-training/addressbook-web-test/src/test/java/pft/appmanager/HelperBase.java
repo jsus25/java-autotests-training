@@ -28,9 +28,9 @@ public class HelperBase {
     }
   }
 
-  protected void attach(By locator, File file) {
+  protected void attach(By locator, String file) {
     if (file != null) {
-      driver.findElement(locator).sendKeys(file.getAbsolutePath());
+      driver.findElement(locator).sendKeys((new File(file)).getAbsolutePath());
     }
   }
   protected boolean isElementPresent(By locator) {

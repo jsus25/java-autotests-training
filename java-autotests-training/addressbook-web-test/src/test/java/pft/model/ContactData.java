@@ -15,41 +15,42 @@ public final class ContactData {
   private int id;
   @Expose  //для библиотеки gson, чтобы игнорировать при сериализации все поля кроме помеченных этой аннотацией
   @Column
-  private String firstName;
+  private String firstName = "";
   @Expose
   @Column
-  private String lastName;
+  private String lastName = "";
   @Expose
-  private String company;
+  private String company = "";
   @Expose
   @Type(type = "text")
-  private String address;
+  private String address = "";
   @Expose
   @Column(name = "home")
   @Type(type = "text")
-  private String homePhone;
+  private String homePhone = "";
   @Expose
   @Column(name = "mobile")
   @Type(type = "text")
-  private String mobilePhone;
+  private String mobilePhone = "";
   @Expose
   @Column(name = "work")
   @Type(type = "text")
-  private String workPhone;
+  private String workPhone = "";
   @Expose
   @Type(type = "text")
-  private String email;
+  private String email = "";
   @Expose
   @Type(type = "text")
-  private String email2;
+  private String email2 = "";
   @Expose
   @Type(type = "text")
-  private String email3;
+  private String email3 = "";
   @Expose
   @Transient
   private String group;
   @Column
   @Type(type = "text")
+  @Transient
   private String photo;
   @Transient
   private String allPhones;
@@ -117,7 +118,11 @@ public final class ContactData {
   public String getWorkPhone() {
     return workPhone;
   }
-  public File getPhoto() {return new File(photo);}
+  public String getPhoto() { return photo;
+//    if (this.photo = null) {
+//      return null;
+//    } else {return new File(photo);}
+  }
 
 
   public String getAllPhones() {
@@ -161,11 +166,16 @@ public final class ContactData {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ContactData that = (ContactData) o;
-    return id == that.id && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName);
+    return id == that.id && Objects.equals(firstName, that.firstName)
+            && Objects.equals(lastName, that.lastName) && Objects.equals(company, that.company)
+            && Objects.equals(address, that.address) && Objects.equals(homePhone, that.homePhone)
+            && Objects.equals(mobilePhone, that.mobilePhone) && Objects.equals(workPhone, that.workPhone)
+            && Objects.equals(email, that.email) && Objects.equals(email2, that.email2)
+            && Objects.equals(email3, that.email3);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, firstName, lastName);
+    return Objects.hash(id, firstName, lastName, company, address, homePhone, mobilePhone, workPhone, email, email2, email3);
   }
 }

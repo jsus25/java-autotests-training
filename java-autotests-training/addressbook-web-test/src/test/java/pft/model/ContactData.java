@@ -118,11 +118,7 @@ public final class ContactData {
   public String getWorkPhone() {
     return workPhone;
   }
-  public String getPhoto() { return photo;
-//    if (this.photo = null) {
-//      return null;
-//    } else {return new File(photo);}
-  }
+  public String getPhoto() { return photo;}
 
 
   public String getAllPhones() {

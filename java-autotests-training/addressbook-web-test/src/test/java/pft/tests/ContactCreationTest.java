@@ -6,6 +6,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pft.model.ContactData;
 import pft.model.Contacts;
+import pft.model.GroupData;
+import pft.model.Groups;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -46,12 +48,34 @@ public class ContactCreationTest extends TestBase {
     assertThat(after, equalTo(before.withAdded(contact)));
   }
 
+  @Test(dataProvider = "validContactJson")
+  public void testContactCreationWithGroup(ContactData contact) {
+    Groups groups = app.db().groups();
+    if (groups.size() == 0) {
+      app.goTo().groupPage();
+      app.group().create(new GroupData(0, "group 0", "header 0", "footer 0"));
+      groups = app.db().groups();
+    }
+    if (contact.getGroups().size() == 0) {
+      contact.inGroup(groups.iterator().next());
+    }
+    Contacts before = app.db().contacts();
+    app.goTo().homePage();
+    app.contact().create(contact);
+    assertThat(app.contact().count(), equalTo(before.size() + 1));
+    Contacts after = app.db().contacts();
+    int newElementId = after.stream().mapToInt(ContactData::getId).max().getAsInt();
+    contact.setId(newElementId);
+    assertThat(after, equalTo(before.withAdded(contact)));
+  }
+
+
   @Test
   public void testContactCreationWithPhotoAndGroup() {
     app.goTo().homePage();
     Contacts before = app.db().contacts();
     File photo = new File("src/test/resources/portret.jpg");
-    ContactData newContactData = new ContactData("Pamella", "Andersen", "Corporation", "", "", "89567845736", "+7(913) 098 54-54", "", "group 0").withPhoto(photo);
+    ContactData newContactData = new ContactData("Pamella", "Andersen", "Corporation", "", "", "89567845736", "+7(913) 098 54-54", "").withPhoto(photo);
     app.contact().create(newContactData);
     assertThat(app.contact().count(), equalTo(before.size() + 1));
     Contacts after = app.db().contacts();

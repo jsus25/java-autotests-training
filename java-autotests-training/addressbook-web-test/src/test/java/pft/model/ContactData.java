@@ -5,7 +5,9 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "addressbook")
@@ -45,9 +47,6 @@ public final class ContactData {
   @Expose
   @Type(type = "text")
   private String email3 = "";
-  @Expose
-  @Transient
-  private String group;
   @Column
   @Type(type = "text")
   @Transient
@@ -56,8 +55,12 @@ public final class ContactData {
   private String allPhones;
   @Transient
   private String allEmails;
+  @ManyToMany(fetch = FetchType.EAGER)  //опция fetch (по умолчанию - Lazy - ленивый, извлекать из БД минимум инфрмации. Eager - жадный, извлекать максимум, чтобы можно было закрыть сессию с БД пораньше)
+  @JoinTable(name = "address_in_groups",
+          joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+  private Set<GroupData> groups = new HashSet<>();
 
-  public ContactData(String firstName, String lastName, String company, String address, String homePhone, String mobilePhone, String workPhone, String email, String group) {
+  public ContactData(String firstName, String lastName, String company, String address, String homePhone, String mobilePhone, String workPhone, String email) {
     this.homePhone = homePhone;
     this.workPhone = workPhone;
     this.id = Integer.MAX_VALUE;
@@ -67,10 +70,10 @@ public final class ContactData {
     this.address = address;
     this.mobilePhone = mobilePhone;
     this.email = email;
-    this.group = group;
+    //    this.group = group;
   }
 
-  public ContactData(int id, String firstName, String lastName, String company, String address, String homePhone, String mobilePhone, String workPhone, String email, String email2, String email3, String group) {
+  public ContactData(int id, String firstName, String lastName, String company, String address, String homePhone, String mobilePhone, String workPhone, String email, String email2, String email3) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -82,7 +85,7 @@ public final class ContactData {
     this.email = email;
     this.email2 = email2;
     this.email3 = email3;
-    this.group = group;
+    //this.group = group;
   }
 
   public ContactData() {
@@ -109,8 +112,8 @@ public final class ContactData {
   public String getEmail3() {
     return email3;
   }
-  public String getGroup() {
-    return group;
+  public Groups getGroups() {
+    return new Groups(groups);
   }
   public String getHomePhone() {
     return homePhone;
@@ -119,7 +122,6 @@ public final class ContactData {
     return workPhone;
   }
   public String getPhoto() { return photo;}
-
 
   public String getAllPhones() {
     return allPhones;
@@ -143,17 +145,22 @@ public final class ContactData {
     this.allEmails = allEmails;
   }
 
+  public ContactData inGroup(GroupData group) {
+    groups.add(group);
+    return this;
+  }
+
 
   @Override
   public String toString() {
     return "ContactData[" +
+            "id=" + id + ", " +
             "first_name=" + firstName + ", " +
             "last_name=" + lastName + ", " +
             "company=" + company + ", " +
             "address=" + address + ", " +
             "mobile_phone=" + mobilePhone + ", " +
-            "email=" + email + ", " +
-            "group=" + group + ']';
+            "email=" + email + ']';
   }
 
 

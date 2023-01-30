@@ -2,11 +2,10 @@ package pft.model;
 
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity                           //для hibernate
 @Table(name = "group_list")          //для hibernate
@@ -23,6 +22,9 @@ public final class GroupData {
   @Type(type = "text")              //для hibernate
   private String footer;
 
+  @ManyToMany(mappedBy = "groups")
+  private Set<ContactData> contacts = new HashSet<>();
+
   public GroupData(Integer id, String name, String header, String footer) {
     this.id = id;
     this.name = name;
@@ -30,9 +32,7 @@ public final class GroupData {
     this.footer = footer;
   }
 
-  public GroupData() {
-
-  }
+  public GroupData() { }
 
   public Integer id() {
     return id;
@@ -63,6 +63,10 @@ public final class GroupData {
     return footer;
   }
 
+  public Contacts getContacts() {
+    return new Contacts(contacts);
+  }
+
   @Override
   public String toString() {
     return "GroupData[" +
@@ -82,13 +86,4 @@ public final class GroupData {
     return this;
   }
 
-  public GroupData withHeader(String header) {
-    this.header = header;
-    return this;
-  }
-
-  public GroupData withFooter(String footer) {
-    this.footer = footer;
-    return this;
-  }
 }

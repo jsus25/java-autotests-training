@@ -13,7 +13,7 @@ public class ContactEditionTest extends TestBase{
   public void ensurePreconditions() {
     app.goTo().homePage();
     if (app.db().contacts().size() == 0) {
-      app.contact().create(new ContactData("Juliett", "Suslenkova", "Corporation", null, null, "89567845736", null, null, "group5"));
+      app.contact().create(new ContactData("Juliett", "Suslenkova", "Corporation", null, null, "89567845736", null, null));
     }
   }
 
@@ -22,7 +22,7 @@ public class ContactEditionTest extends TestBase{
     Contacts before = app.db().contacts();
     ContactData editedContact = before.iterator().next();
     ContactData newContactData = new ContactData(editedContact.getId(), "Margo", "Frolova", "SCB", "Academ",
-            "", "88888888888", "", "mf749@gtkd,ru", "", "", "");
+            "", "88888888888", "", "mf749@gtkd,ru", "", "");
     app.contact().edit(newContactData);
     assertThat(app.contact().count(), equalTo(before.size()));
     Contacts after = app.db().contacts();

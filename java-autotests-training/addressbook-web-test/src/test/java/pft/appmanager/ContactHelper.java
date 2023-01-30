@@ -36,8 +36,9 @@ public class ContactHelper extends HelperBase {
     type(By.name("work"),contactData.getWorkPhone());
     type(By.name("email"),contactData.getEmail());
     if (creation) {
-      if (contactData.getGroup() != null) {
-        new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      if (contactData.getGroups().size() > 0) {
+        Assert.assertEquals(contactData.getGroups().size(), 1);
+        new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().name());
       }
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
@@ -69,12 +70,6 @@ public class ContactHelper extends HelperBase {
 
   public void create(ContactData contact) {
     goTo.contactAddPage();
-    if (contact.getGroup() != null) {
-      if (!isGroupPresent(contact.getGroup())) {
-        System.out.println("!!! Couldn't create a contact: Group is absent in DB");
-        return;
-      }
-    }
     fillContactForm(contact, true);
     submitContactCreation();
     contactCache = null;
@@ -121,7 +116,7 @@ public class ContactHelper extends HelperBase {
       String allPhones = element.findElement(By.xpath("td[6]")).getText();
       int id = Integer.parseInt(element.findElement(By.name("selected[]")).getAttribute("id"));
       ContactData contact = new ContactData(id, firstName, lastName, null, null,
-              null, null,null, null, null, null, null);
+              null, null,null, null, null, null);
       contact.setAllPhones(allPhones);
       contact.setAllEmails(allEmails);
       contactCache.add(contact);
@@ -142,7 +137,7 @@ public class ContactHelper extends HelperBase {
      String email2 = driver.findElement(By.name("email2")).getAttribute("value");
      String email3 = driver.findElement(By.name("email3")).getAttribute("value");
      return new ContactData(contact.getId(), firstname, lastname, company, address,
-             homePhone, mobilePhone, workPhone, email, email2, email3, null);}
+             homePhone, mobilePhone, workPhone, email, email2, email3);}
 
   public String contentFromInfoPage(ContactData contact) {
     goTo.homePage();

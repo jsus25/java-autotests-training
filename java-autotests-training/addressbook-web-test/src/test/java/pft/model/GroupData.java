@@ -22,7 +22,7 @@ public final class GroupData {
   @Type(type = "text")              //для hibernate
   private String footer;
 
-  @ManyToMany(mappedBy = "groups")
+  @ManyToMany(mappedBy = "groups", fetch = FetchType.EAGER)
   private Set<ContactData> contacts = new HashSet<>();
 
   public GroupData(Integer id, String name, String header, String footer) {

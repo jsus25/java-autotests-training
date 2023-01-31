@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import pft.model.ContactData;
 import pft.model.Contacts;
+import pft.model.GroupData;
 
 import java.util.List;
 
@@ -45,7 +46,7 @@ public class ContactHelper extends HelperBase {
     }
   }
 
-  private void selectContactById(int id) {
+  public void selectContactById(int id) {
     driver.findElement(By.cssSelector("input[id='" + id + "']")).click();
   }
 
@@ -143,5 +144,11 @@ public class ContactHelper extends HelperBase {
     goTo.homePage();
     driver.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", contact.getId()))).click();
     return driver.findElement(By.id("content")).getText();
+  }
+
+  public void addToGroup(GroupData group) {
+    new Select(driver.findElement(By.name("to_group"))).selectByVisibleText(group.name());
+    click(By.name("add"));
+
   }
 }

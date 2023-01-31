@@ -45,4 +45,15 @@ public class HbConnectionTest {
     }
   }
 
+  @Test
+  public void testHbAddGroupToDb() {
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+  //  session.save( new GroupData(300,"group88", "header88", "footer88"));
+  //  session.createSQLQuery("INSERT INTO `group_list` (`domain_id`, `group_id`, `group_parent_id`, `created`, `modified`, `deprecated`, `group_name`, `group_header`, `group_footer`) VALUES ('0', NULL, NULL, NULL, NULL, '', 'g3', 'h3', 'f3')");
+    session.getTransaction().commit();
+    session.close();
+  }
+
+//     session.save( new ContactData("Juliett", "Suslenkova", "Corporation", null, null, "89567845736", null, null));
 }

@@ -25,6 +25,7 @@ public final class GroupData {
   @ManyToMany(mappedBy = "groups", fetch = FetchType.EAGER)
   private Set<ContactData> contacts = new HashSet<>();
 
+
   public GroupData(Integer id, String name, String header, String footer) {
     this.id = id;
     this.name = name;
@@ -65,6 +66,10 @@ public final class GroupData {
 
   public Contacts getContacts() {
     return new Contacts(contacts);
+  }
+
+  public void setContacts(Set<ContactData> contacts) {
+    this.contacts = contacts;
   }
 
   @Override

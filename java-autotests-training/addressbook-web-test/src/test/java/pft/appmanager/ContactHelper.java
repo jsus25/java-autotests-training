@@ -147,8 +147,15 @@ public class ContactHelper extends HelperBase {
   }
 
   public void addToGroup(GroupData group) {
-    new Select(driver.findElement(By.name("to_group"))).selectByVisibleText(group.name());
+    new Select(driver.findElement(By.name("to_group"))).selectByValue(Integer.toString(group.id()));
     click(By.name("add"));
+  }
 
+  public void removeFromGroup() {
+    click(By.name("remove"));
+  }
+
+  public void filter(GroupData group) {
+    new Select(driver.findElement(By.name("group"))).selectByVisibleText(group.name());
   }
 }

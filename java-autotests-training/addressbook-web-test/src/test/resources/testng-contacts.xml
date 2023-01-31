@@ -5,8 +5,8 @@
             <class name="pft.tests.ContactEditionTest"/>
             <class name="pft.tests.ContactDeletionTest"/>
             <class name="pft.tests.ContactInfoTest"/>
-            <class name="pft.tests.ContactAddToGroupTest"/>
             <class name="pft.tests.ContactRemoveFromGroupTest"/>
+            <class name="pft.tests.ContactAddToGroupTest"/>
         </classes>
     </test>
 </suite>

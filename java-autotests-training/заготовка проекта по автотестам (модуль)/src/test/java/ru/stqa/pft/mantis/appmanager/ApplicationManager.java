@@ -40,17 +40,15 @@ public class ApplicationManager {
     js = (JavascriptExecutor) driver;
     driver.get(properties.getProperty("web.baseUrl"));
     driver.manage().window().setSize(new Dimension(1198, 804));
+    //    navigationHelper = new NavigationHelper(driver);
+ //   SessionHelper sessionHelper = new SessionHelper(driver);
+  //  sessionHelper.login(properties.getProperty("web.adminLogin"), properties.getProperty("web.adminPass"));
   }
 
   public void stop() {
     driver.quit();
   }
 
-  public HttpSession newSession() {
-    return new HttpSession(this);
-  }
+//  public NavigationHelper goTo() {   return navigationHelper; }
 
-  public String getProperty(String key) {
-    return properties.getProperty(key);
-  }
 }

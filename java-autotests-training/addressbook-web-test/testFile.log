@@ -1759,3 +1759,23 @@ java.net.SocketException: Connection reset
 19801 [main] INFO  pft.tests.TestBase - Stop test testContactAddToGroup
 19803 [main] INFO  pft.tests.TestBase - Start test testContactRemoveFromGroup with parameters []
 20509 [main] INFO  pft.tests.TestBase - Stop test testContactRemoveFromGroup
+742  [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+1556 [Test worker] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+1750 [Test worker] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+1760 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost/addressbook]
+1760 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=root}
+1761 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+1771 [Test worker] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 1 (min=1)
+2088 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2846 [Test worker] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5f8d9767] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+3023 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+7800 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreation with parameters [ContactData[id=0, first_name=Ivan0, last_name=Balabanov0, company=, address=, mobile_phone=89567845730, email=]]
+9850 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreation
+9852 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreation with parameters [ContactData[id=0, first_name=Ivan1, last_name=Balabanov1, company=, address=, mobile_phone=89567845731, email=]]
+11484 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreation
+11490 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreationWithGroup with parameters [ContactData[id=0, first_name=Ivan0, last_name=Balabanov0, company=, address=, mobile_phone=89567845730, email=]]
+13291 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreationWithGroup
+13292 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreationWithGroup with parameters [ContactData[id=0, first_name=Ivan1, last_name=Balabanov1, company=, address=, mobile_phone=89567845731, email=]]
+15030 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreationWithGroup
+15033 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreationWithPhotoAndGroup with parameters []
+16841 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreationWithPhotoAndGroup

@@ -18,8 +18,10 @@ public class ApplicationManager {
   private final String browser;
   JavascriptExecutor js;
   private RegistrationHelper registrationHelper;
+  private AdminHelper adminHelper;
   private FtpHelper ftpHelper;
   private MailHelper mailHelper;
+
 
   public ApplicationManager(String browser) {
     this.browser = browser;
@@ -50,6 +52,13 @@ public class ApplicationManager {
       registrationHelper = new RegistrationHelper(this);
     }
     return registrationHelper;
+  }
+
+  public AdminHelper admin() {
+    if (adminHelper == null) {
+      adminHelper = new AdminHelper(this);
+    }
+    return adminHelper;
   }
 
   public FtpHelper ftp() {

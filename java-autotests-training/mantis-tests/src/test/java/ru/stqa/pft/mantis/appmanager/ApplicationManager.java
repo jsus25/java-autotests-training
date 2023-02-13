@@ -21,6 +21,7 @@ public class ApplicationManager {
   private AdminHelper adminHelper;
   private FtpHelper ftpHelper;
   private MailHelper mailHelper;
+  private SoapHelper soapHelper;
 
 
   public ApplicationManager(String browser) {
@@ -73,6 +74,13 @@ public class ApplicationManager {
       mailHelper = new MailHelper(this);
     }
     return mailHelper;
+  }
+
+  public SoapHelper soap() {
+    if (soapHelper == null) {
+      soapHelper = new SoapHelper();
+    }
+    return soapHelper;
   }
 
   public WebDriver getDriver() {

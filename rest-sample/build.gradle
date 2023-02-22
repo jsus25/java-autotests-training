@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.testng', name: 'testng', version: '7.6.1'
+    implementation 'ch.qos.logback:logback-classic:1.4.5'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.14'
+    implementation 'org.apache.httpcomponents:fluent-hc:4.5.14'
+    implementation 'com.google.code.gson:gson:2.10.1'
+    testImplementation 'io.rest-assured:rest-assured:5.3.0'
+
+}
+
+test {
+    useTestNG()
+}
+
+
+

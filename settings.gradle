@@ -1,0 +1,4 @@
+rootProject.name = 'java-autotests-training4'
+
+include 'addressbook-web-test', 'github-sample', 'mantis-tests', 'rest-sample', 'sandbox1'
+

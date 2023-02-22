@@ -1,4 +1,4 @@
-rootProject.name = 'java-autotests-training4'
+rootProject.name = 'java-autotests-training'
 
 include 'addressbook-web-test', 'github-sample', 'mantis-tests', 'rest-sample', 'sandbox1'
 

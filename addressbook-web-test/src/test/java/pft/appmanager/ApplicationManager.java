@@ -37,11 +37,11 @@ public class ApplicationManager {
     dbHelper = new DbHelper();
 
     if ("".equals(properties.getProperty("selenium.server"))) {
-      if (Objects.equals(browser, "CHROME")) {
+      if (Objects.equals(browser, "chrome")) {
         driver = new ChromeDriver();
-      } else if (Objects.equals(browser, "FIREFOX")) {
+      } else if (Objects.equals(browser, "firefox")) {
         driver = new FirefoxDriver();
-      } else if (Objects.equals(browser, "EDGE")) {
+      } else if (Objects.equals(browser, "edge")) {
         driver = new EdgeDriver();
       }
     } else {

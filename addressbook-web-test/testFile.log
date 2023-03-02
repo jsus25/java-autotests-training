@@ -2183,3 +2183,55 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 6630 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupCreation
 6631 [Test worker] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=1, name=group 1, header=header 1, footer=footer 1]]
 7504 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupCreation
+872  [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+1481 [Test worker] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+1616 [Test worker] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+1623 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost/addressbook]
+1624 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=root}
+1624 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+1630 [Test worker] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 1 (min=1)
+1911 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2577 [Test worker] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1983b48a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2697 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+6420 [Test worker] INFO  pft.tests.TestBase - Start test testContactAddToGroup with parameters []
+7277 [Test worker] INFO  pft.tests.TestBase - Stop test testContactAddToGroup
+7341 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreation with parameters [ContactData[id=0, first_name=Ivan0, last_name=Balabanov0, company=, address=, mobile_phone=89567845730, email=]]
+9150 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreation
+9151 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreation with parameters [ContactData[id=0, first_name=Ivan1, last_name=Balabanov1, company=, address=, mobile_phone=89567845731, email=]]
+10872 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreation
+10876 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreationWithGroup with parameters [ContactData[id=0, first_name=Ivan0, last_name=Balabanov0, company=, address=, mobile_phone=89567845730, email=]]
+12602 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreationWithGroup
+12604 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreationWithGroup with parameters [ContactData[id=0, first_name=Ivan1, last_name=Balabanov1, company=, address=, mobile_phone=89567845731, email=]]
+14317 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreationWithGroup
+14319 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreationWithPhotoAndGroup with parameters []
+16032 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreationWithPhotoAndGroup
+16034 [Test worker] INFO  pft.tests.TestBase - Start test testContactDeletion with parameters []
+16625 [Test worker] INFO  pft.tests.TestBase - Stop test testContactDeletion
+16628 [Test worker] INFO  pft.tests.TestBase - Start test testContactEdition with parameters []
+18458 [Test worker] INFO  pft.tests.TestBase - Stop test testContactEdition
+18460 [Test worker] INFO  pft.tests.TestBase - Start test testContactEmail with parameters []
+25755 [Test worker] INFO  pft.tests.TestBase - Stop test testContactEmail
+25756 [Test worker] INFO  pft.tests.TestBase - Start test testContactInfo with parameters []
+26732 [Test worker] INFO  pft.tests.TestBase - Stop test testContactInfo
+26734 [Test worker] INFO  pft.tests.TestBase - Start test testContactPhone with parameters []
+27325 [Test worker] INFO  pft.tests.TestBase - Stop test testContactPhone
+27326 [Test worker] INFO  pft.tests.TestBase - Start test testContactRemoveFromGroup with parameters []
+29844 [Test worker] INFO  pft.tests.TestBase - Stop test testContactRemoveFromGroup
+29867 [Test worker] INFO  pft.tests.TestBase - Start test testBadGroupCreation with parameters []
+30863 [Test worker] INFO  pft.tests.TestBase - Stop test testBadGroupCreation
+30868 [Test worker] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=0, name=group 0, header=header 0, footer=footer 0]]
+31910 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupCreation
+31911 [Test worker] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=1, name=group 1, header=header 1, footer=footer 1]]
+32927 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupCreation
+32929 [Test worker] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+33437 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupDeletion
+33439 [Test worker] INFO  pft.tests.TestBase - Start test testGroupEdition with parameters []
+34500 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupEdition
+34539 [Test worker] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+34539 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost/addressbook]
+34539 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=root}
+34539 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+34540 [Test worker] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 1 (min=1)
+34545 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+34569 [Test worker] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3330bdd1] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+34644 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]

@@ -23,8 +23,8 @@ public class TestBase {
   Logger logger = LoggerFactory.getLogger(TestBase.class);
 
   protected static final ApplicationManager app
-          = new ApplicationManager(System.getProperty("browser", "CHROME"));
-                                                                 //EDGE, FIREFOX, CHROME
+          = new ApplicationManager(System.getProperty("browser", "chrome"));
+                                                                 //edge, firefox, chrome
 
 
   @BeforeSuite

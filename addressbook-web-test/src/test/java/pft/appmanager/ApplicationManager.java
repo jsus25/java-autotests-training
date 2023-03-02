@@ -2,13 +2,17 @@ package pft.appmanager;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
 import java.util.Properties;
 
@@ -33,13 +37,22 @@ public class ApplicationManager {
 
     dbHelper = new DbHelper();
 
-    if (Objects.equals(browser, "CHROME")) {
-      driver = new ChromeDriver();
-    } else if (Objects.equals(browser, "FIREFOX")) {
-      driver = new FirefoxDriver();
-    } else if (Objects.equals(browser, "EDGE")) {
-      driver = new EdgeDriver();
+    if ("".equals(properties.getProperty("selenium.server"))) {
+      if (Objects.equals(browser, "chrome")) {
+        driver = new ChromeDriver();
+      } else if (Objects.equals(browser, "firefox")) {
+        driver = new FirefoxDriver();
+      } else if (Objects.equals(browser, "edge")) {
+        driver = new EdgeDriver();
+      }
+    } else {
+      DesiredCapabilities capabilities = new DesiredCapabilities();
+      capabilities.setBrowserName(browser);
+      capabilities.setPlatform(Platform.fromString(System.getProperty("platform", "win10")));
+      driver = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
     }
+
+
 
     js = (JavascriptExecutor) driver;
     driver.get(properties.getProperty("web.baseUrl"));

@@ -1878,3 +1878,152 @@ java.net.SocketException: Connection reset
 2794 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 5898 [Test worker] INFO  pft.tests.TestBase - Start test testContactAddToGroup with parameters []
 6678 [Test worker] INFO  pft.tests.TestBase - Stop test testContactAddToGroup
+414  [main] WARN  o.testng.xml.TestNGContentHandler - It is strongly recommended to add "<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >" at the top of the suite file [C:\Users\jsus2\GIT\java-autotests-training\addressbook-web-test\src\test\resources\testng-groups.xml] otherwise TestNG may fail or not work as expected.
+724  [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\jsus2\GIT\java-autotests-training\addressbook-web-test\src\test\resources\testng-groups.xml
+
+853  [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+1458 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+1596 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+1603 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost/addressbook]
+1603 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=root}
+1604 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+1607 [main] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 1 (min=1)
+1746 [main] WARN  o.h.e.j.e.i.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.getConnection(DriverManagerConnectionProviderImpl.java:220)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:107)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:246)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:129)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:42)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:62)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:457)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:323)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:297)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:501)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:101)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:76)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:107)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:246)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:146)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:175)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:173)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:86)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:479)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:85)
+	at org.hibernate.boot.MetadataSources.buildMetadata(MetadataSources.java:202)
+	at pft.appmanager.DbHelper.<init>(DbHelper.java:24)
+	at pft.appmanager.ApplicationManager.init(ApplicationManager.java:34)
+	at pft.tests.TestBase.setUp(TestBase.java:32)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:361)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:296)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:372)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)
+1765 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+1783 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 08S01
+1783 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+1828 [main] INFO  pft.tests.TestBase - Stop test testBadGroupCreation
+1911 [main] INFO  pft.tests.TestBase - Stop test testGroupCreation
+1912 [main] INFO  pft.tests.TestBase - Stop test testGroupCreation
+1916 [main] INFO  pft.tests.TestBase - Stop test testGroupEdition
+1917 [main] INFO  pft.tests.TestBase - Stop test testGroupDeletion
+995  [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\jsus2\GIT\java-autotests-training\addressbook-web-test\src\test\resources\testng-groups.xml
+
+1114 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+1746 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+1893 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+1899 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost/addressbook]
+1900 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=root}
+1900 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+1905 [main] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 1 (min=1)
+2188 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+3005 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@61514735] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+3199 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+8310 [main] INFO  pft.tests.TestBase - Stop test testBadGroupCreation
+8373 [main] INFO  pft.tests.TestBase - Stop test testGroupCreation
+8376 [main] INFO  pft.tests.TestBase - Stop test testGroupCreation
+8382 [main] INFO  pft.tests.TestBase - Stop test testGroupEdition
+8386 [main] INFO  pft.tests.TestBase - Stop test testGroupDeletion
+793  [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\jsus2\GIT\java-autotests-training\addressbook-web-test\src\test\resources\testng-groups.xml
+
+903  [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+1528 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+1667 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+1674 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost/addressbook]
+1674 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=root}
+1674 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+1678 [main] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 1 (min=1)
+1932 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2672 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4548d254] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2856 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+8334 [main] INFO  pft.tests.TestBase - Start test testBadGroupCreation with parameters []
+9729 [main] INFO  pft.tests.TestBase - Stop test testBadGroupCreation
+9787 [main] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=0, name=group 0, header=header 0, footer=footer 0]]
+10836 [main] INFO  pft.tests.TestBase - Stop test testGroupCreation
+10838 [main] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=1, name=group 1, header=header 1, footer=footer 1]]
+11936 [main] INFO  pft.tests.TestBase - Stop test testGroupCreation
+11940 [main] INFO  pft.tests.TestBase - Start test testGroupEdition with parameters []
+13163 [main] INFO  pft.tests.TestBase - Stop test testGroupEdition
+13165 [main] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+13651 [main] INFO  pft.tests.TestBase - Stop test testGroupDeletion
+938  [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\jsus2\GIT\java-autotests-training\addressbook-web-test\src\test\resources\testng-groups.xml
+
+1063 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+1682 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+1838 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+1845 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost/addressbook]
+1846 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=root}
+1846 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+1851 [main] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 1 (min=1)
+2091 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2820 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@43b5021c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2965 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+5993 [main] INFO  pft.tests.TestBase - Start test testBadGroupCreation with parameters []
+7268 [main] INFO  pft.tests.TestBase - Stop test testBadGroupCreation
+7332 [main] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=0, name=group 0, header=header 0, footer=footer 0]]
+8366 [main] INFO  pft.tests.TestBase - Stop test testGroupCreation
+8368 [main] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=1, name=group 1, header=header 1, footer=footer 1]]
+9363 [main] INFO  pft.tests.TestBase - Stop test testGroupCreation
+9367 [main] INFO  pft.tests.TestBase - Start test testGroupEdition with parameters []
+10504 [main] INFO  pft.tests.TestBase - Stop test testGroupEdition
+10507 [main] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+10999 [main] INFO  pft.tests.TestBase - Stop test testGroupDeletion

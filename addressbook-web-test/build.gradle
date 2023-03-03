@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'io.qameta.allure' version '2.9.6'
 }
 
 group 'org.example'
@@ -19,7 +20,14 @@ dependencies {
     implementation 'mysql:mysql-connector-java:8.0.31'
     implementation 'org.hibernate:hibernate-core:5.6.14.Final'
 
+    testImplementation 'org.aspectj:aspectjweaver:1.9.5'
+    testImplementation 'io.qameta.allure:allure-testng:2.12.1'
+    testImplementation 'io.qameta.allure:allure-commandline:2.12.1'
+    testImplementation 'io.qameta.allure:allure-assertj:2.12.1'
+//    testImplementation 'io.qameta.allure:allure-rest-assured:2.12.1'  - нужен для тестов, где используется RestAssured
+    testImplementation 'io.qameta.allure:allure-java-commons:2.12.1'
 }
+
 
 task testContacts(type: Test) {
     useTestNG(){
@@ -37,7 +45,6 @@ task testContacts(type: Test) {
     if (project.hasProperty('verifyUI')) {
         systemProperty 'verifyUI', "${verifyUI}"
     }
-
 }
 
 task testGroups(type: Test) {
@@ -56,9 +63,10 @@ task testGroups(type: Test) {
     if (project.hasProperty('verifyUI')) {
         systemProperty 'verifyUI', "${verifyUI}"
     }
-
 }
 
 test {
     useTestNG()
 }
+
+

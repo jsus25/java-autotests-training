@@ -2235,3 +2235,132 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 34545 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
 34569 [Test worker] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3330bdd1] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
 34644 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+12435 [Test worker] INFO  pft.tests.TestBase - Start test testContactDeletion with parameters []
+14210 [Test worker] INFO  pft.tests.TestBase - Stop test testContactDeletion
+13043 [Test worker] INFO  pft.tests.TestBase - Start test testContactAddToGroup with parameters []
+14217 [Test worker] INFO  pft.tests.TestBase - Stop test testContactAddToGroup
+14356 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreation with parameters [ContactData[id=0, first_name=Ivan0, last_name=Balabanov0, company=, address=, mobile_phone=89567845730, email=]]
+16273 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreation
+16276 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreation with parameters [ContactData[id=0, first_name=Ivan1, last_name=Balabanov1, company=, address=, mobile_phone=89567845731, email=]]
+17863 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreation
+17869 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreationWithGroup with parameters [ContactData[id=0, first_name=Ivan0, last_name=Balabanov0, company=, address=, mobile_phone=89567845730, email=]]
+19587 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreationWithGroup
+19590 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreationWithGroup with parameters [ContactData[id=0, first_name=Ivan1, last_name=Balabanov1, company=, address=, mobile_phone=89567845731, email=]]
+21335 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreationWithGroup
+21338 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreationWithPhotoAndGroup with parameters []
+23067 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreationWithPhotoAndGroup
+23071 [Test worker] INFO  pft.tests.TestBase - Start test testContactDeletion with parameters []
+23782 [Test worker] INFO  pft.tests.TestBase - Stop test testContactDeletion
+23788 [Test worker] INFO  pft.tests.TestBase - Start test testContactEdition with parameters []
+26121 [Test worker] INFO  pft.tests.TestBase - Stop test testContactEdition
+26125 [Test worker] INFO  pft.tests.TestBase - Start test testContactEmail with parameters []
+35441 [Test worker] INFO  pft.tests.TestBase - Stop test testContactEmail
+35450 [Test worker] INFO  pft.tests.TestBase - Start test testContactInfo with parameters []
+36692 [Test worker] INFO  pft.tests.TestBase - Stop test testContactInfo
+36696 [Test worker] INFO  pft.tests.TestBase - Start test testContactPhone with parameters []
+37404 [Test worker] INFO  pft.tests.TestBase - Stop test testContactPhone
+37413 [Test worker] INFO  pft.tests.TestBase - Start test testContactRemoveFromGroup with parameters []
+40819 [Test worker] INFO  pft.tests.TestBase - Stop test testContactRemoveFromGroup
+40846 [Test worker] INFO  pft.tests.TestBase - Start test testBadGroupCreation with parameters []
+41782 [Test worker] INFO  pft.tests.TestBase - Stop test testBadGroupCreation
+41788 [Test worker] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=0, name=group 0, header=header 0, footer=footer 0]]
+42745 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupCreation
+42748 [Test worker] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=1, name=group 1, header=header 1, footer=footer 1]]
+43682 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupCreation
+43685 [Test worker] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+44193 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupDeletion
+44198 [Test worker] INFO  pft.tests.TestBase - Start test testGroupEdition with parameters []
+45290 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupEdition
+45596 [AsyncHttpClient-1-4] WARN  o.a.netty.handler.WebSocketHandler - onError
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:394)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:426)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:259)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+1049 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\jsus2\GIT\java-autotests-training\addressbook-web-test\src\test\resources\testng-groups.xml
+
+5480 [main] INFO  pft.tests.TestBase - Start test testBadGroupCreation with parameters []
+6851 [main] INFO  pft.tests.TestBase - Stop test testBadGroupCreation
+6900 [main] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=0, name=group 0, header=header 0, footer=footer 0]]
+7919 [main] INFO  pft.tests.TestBase - Stop test testGroupCreation
+7921 [main] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=1, name=group 1, header=header 1, footer=footer 1]]
+8929 [main] INFO  pft.tests.TestBase - Stop test testGroupCreation
+8933 [main] INFO  pft.tests.TestBase - Start test testGroupEdition with parameters []
+10117 [main] INFO  pft.tests.TestBase - Stop test testGroupEdition
+10121 [main] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+10764 [main] INFO  pft.tests.TestBase - Stop test testGroupDeletion
+10851 [AsyncHttpClient-1-4] WARN  o.a.netty.handler.WebSocketHandler - onError
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:394)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:426)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:259)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+1003 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\jsus2\GIT\java-autotests-training\addressbook-web-test\src\test\resources\testng-groups.xml
+
+6451 [main] INFO  pft.tests.TestBase - Start test testBadGroupCreation with parameters []
+7861 [main] INFO  pft.tests.TestBase - Stop test testBadGroupCreation
+7909 [main] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=0, name=group 0, header=header 0, footer=footer 0]]
+8913 [main] INFO  pft.tests.TestBase - Stop test testGroupCreation
+8918 [main] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=1, name=group 1, header=header 1, footer=footer 1]]
+9944 [main] INFO  pft.tests.TestBase - Stop test testGroupCreation
+9949 [main] INFO  pft.tests.TestBase - Start test testGroupEdition with parameters []
+11090 [main] INFO  pft.tests.TestBase - Stop test testGroupEdition
+11094 [main] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+11751 [main] INFO  pft.tests.TestBase - Stop test testGroupDeletion
+11807 [AsyncHttpClient-1-4] WARN  o.a.netty.handler.WebSocketHandler - onError
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:394)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:426)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:259)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+1329 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\jsus2\GIT\java-autotests-training\addressbook-web-test\src\test\resources\testng-groups.xml
+
+6670 [main] INFO  pft.tests.TestBase - Start test testBadGroupCreation with parameters []
+8047 [main] INFO  pft.tests.TestBase - Stop test testBadGroupCreation
+8090 [main] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=0, name=group 0, header=header 0, footer=footer 0]]
+9090 [main] INFO  pft.tests.TestBase - Stop test testGroupCreation
+9094 [main] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=1, name=group 1, header=header 1, footer=footer 1]]
+10099 [main] INFO  pft.tests.TestBase - Stop test testGroupCreation
+10103 [main] INFO  pft.tests.TestBase - Start test testGroupEdition with parameters []
+11179 [main] INFO  pft.tests.TestBase - Stop test testGroupEdition
+11184 [main] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+11750 [main] INFO  pft.tests.TestBase - Stop test testGroupDeletion
+11544 [Test worker] INFO  pft.tests.TestBase - Start test testBadGroupCreation with parameters []
+13357 [Test worker] INFO  pft.tests.TestBase - Stop test testBadGroupCreation
+13468 [Test worker] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=0, name=group 0, header=header 0, footer=footer 0]]
+14555 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupCreation
+14559 [Test worker] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=1, name=group 1, header=header 1, footer=footer 1]]
+15697 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupCreation

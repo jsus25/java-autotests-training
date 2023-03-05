@@ -1,9 +1,7 @@
 package pft.appmanager;
 
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Platform;
-import org.openqa.selenium.WebDriver;
+import io.qameta.allure.Allure;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -77,4 +75,12 @@ public class ApplicationManager {
     return navigationHelper;
   }
   public DbHelper db() { return dbHelper; }
+
+
+  public void takeScreenshot() {
+    Allure.getLifecycle().addAttachment(
+            "screenshot", "image/png", "png"
+            , ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)
+    );
+  }
 }

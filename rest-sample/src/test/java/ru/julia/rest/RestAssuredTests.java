@@ -9,13 +9,10 @@ import java.util.Set;
 
 import static org.testng.Assert.assertEquals;
 
-public class RestAssuredTests {
-  private final String baseUrl = "https://team-vtr1.testit.software/api";
-
+public class RestAssuredTests extends TestBase {
 
   @Test
   public void testCreateTestCase() {
-    String projectId = "613914d3-c73d-4506-92f7-34bfe315f69b";
     Set<TestCase> oldTestCases = getTestCases(projectId);
     TestCase newTestCase = new TestCase().withName("Automation Added Case");
     int testCaseId = createTestCase();
@@ -29,8 +26,8 @@ public class RestAssuredTests {
 
     String body = RestAssured
             .given()
-            .header("authorization","PrivateToken bXk4anUzeVBNOFR1Mm5PbVlp")
-            .get(baseUrl + String.format("/v2/projects/%s/workItems?isDeleted=false&includeIterations=true",projectId))
+            .header("authorization",token)
+            .get(baseUrl + String.format("v2/projects/%s/workItems?isDeleted=false&includeIterations=true",projectId))
             .asString();
 
     return new Gson().fromJson(body, new TypeToken<Set<TestCase>>(){}.getType());
@@ -38,7 +35,7 @@ public class RestAssuredTests {
 
   private int createTestCase() {
 
-    String json = (RestAssured.given().header("authorization", "PrivateToken bXk4anUzeVBNOFR1Mm5PbVlp"))
+    String json = (RestAssured.given().header("authorization", token))
             .body("""
                     {
                       "entityTypeName": "TestCases",
@@ -70,7 +67,7 @@ public class RestAssuredTests {
                     }""")
             .contentType("application/json")
             .when()
-            .post(baseUrl + "/v2/workItems")
+            .post(baseUrl + "v2/workItems")
             .asString();
 
         return new Gson().fromJson(json, TestCase.class).getGlobalId();

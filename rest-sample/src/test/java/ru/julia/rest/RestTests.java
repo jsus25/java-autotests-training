@@ -10,13 +10,9 @@ import java.util.Set;
 
 import static org.testng.Assert.assertEquals;
 
-public class RestTests {
-  private final String baseUrl = "https://team-vtr1.testit.software/api";
-
-
+public class RestTests extends TestBase {
   @Test
   public void testCreateTestCase() throws IOException {
-    String projectId = "613914d3-c73d-4506-92f7-34bfe315f69b";
     Set<TestCase> oldTestCases = getTestCases(projectId);
     TestCase newTestCase = new TestCase().withName("Automation Added Case");
     int testCaseId = createTestCase();
@@ -28,15 +24,15 @@ public class RestTests {
 
   private Set<TestCase> getTestCases(String projectId) throws IOException {
 
-    String body = Request.Get(baseUrl + String.format("/v2/projects/%s/workItems?isDeleted=false&includeIterations=true",projectId))
-            .addHeader("authorization","PrivateToken bXk4anUzeVBNOFR1Mm5PbVlp")
+    String body = Request.Get(baseUrl + String.format("v2/projects/%s/workItems?isDeleted=false&includeIterations=true",projectId))
+            .addHeader("authorization",token)
             .execute().returnContent().asString();
     return new Gson().fromJson(body, new TypeToken<Set<TestCase>>(){}.getType());
   }
 
   private int createTestCase() throws IOException {
-    String json = Request.Post(baseUrl + "/v2/workItems")
-            .addHeader("authorization","PrivateToken bXk4anUzeVBNOFR1Mm5PbVlp")
+    String json = Request.Post(baseUrl + "v2/workItems")
+            .addHeader("authorization",token)
             .bodyString("""
                     {
                       "entityTypeName": "TestCases",

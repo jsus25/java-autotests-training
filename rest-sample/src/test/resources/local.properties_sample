@@ -1,0 +1,7 @@
+baseUrl = https://team-vtr1.testit.software/api/
+
+# your project ID
+projectId =
+
+# your private token for TestIT API
+token =

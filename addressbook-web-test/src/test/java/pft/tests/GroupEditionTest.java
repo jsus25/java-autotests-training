@@ -28,6 +28,9 @@ public class GroupEditionTest extends TestBase{
     Groups after = app.db().groups();
     assertThat(after, equalTo(before.without(editedGroup).withAdded(group)));
     verifyGroupListInUI();
+
+
+
   }
 
 }

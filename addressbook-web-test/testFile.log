@@ -2364,3 +2364,132 @@ java.net.SocketException: Connection reset
 14555 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupCreation
 14559 [Test worker] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=1, name=group 1, header=header 1, footer=footer 1]]
 15697 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupCreation
+13602 [Test worker] INFO  pft.tests.TestBase - Start test testContactAddToGroup with parameters []
+14480 [Test worker] INFO  pft.tests.TestBase - Stop test testContactAddToGroup
+14577 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreation with parameters [ContactData[id=0, first_name=Ivan0, last_name=Balabanov0, company=, address=, mobile_phone=89567845730, email=]]
+15991 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreation
+15995 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreation with parameters [ContactData[id=0, first_name=Ivan1, last_name=Balabanov1, company=, address=, mobile_phone=89567845731, email=]]
+17332 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreation
+17338 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreationWithGroup with parameters [ContactData[id=0, first_name=Ivan0, last_name=Balabanov0, company=, address=, mobile_phone=89567845730, email=]]
+18879 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreationWithGroup
+18884 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreationWithGroup with parameters [ContactData[id=0, first_name=Ivan1, last_name=Balabanov1, company=, address=, mobile_phone=89567845731, email=]]
+20719 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreationWithGroup
+20730 [Test worker] INFO  pft.tests.TestBase - Start test testContactCreationWithPhotoAndGroup with parameters []
+22601 [Test worker] INFO  pft.tests.TestBase - Stop test testContactCreationWithPhotoAndGroup
+22605 [Test worker] INFO  pft.tests.TestBase - Start test testContactDeletion with parameters []
+23087 [Test worker] INFO  pft.tests.TestBase - Stop test testContactDeletion
+23096 [Test worker] INFO  pft.tests.TestBase - Start test testContactEdition with parameters []
+24422 [Test worker] INFO  pft.tests.TestBase - Stop test testContactEdition
+24427 [Test worker] INFO  pft.tests.TestBase - Start test testContactEmail with parameters []
+25964 [Test worker] INFO  pft.tests.TestBase - Stop test testContactEmail
+25968 [Test worker] INFO  pft.tests.TestBase - Start test testContactInfo with parameters []
+26975 [Test worker] INFO  pft.tests.TestBase - Stop test testContactInfo
+26979 [Test worker] INFO  pft.tests.TestBase - Start test testContactPhone with parameters []
+27603 [Test worker] INFO  pft.tests.TestBase - Stop test testContactPhone
+27608 [Test worker] INFO  pft.tests.TestBase - Start test testContactRemoveFromGroup with parameters []
+28530 [Test worker] INFO  pft.tests.TestBase - Stop test testContactRemoveFromGroup
+28560 [Test worker] INFO  pft.tests.TestBase - Start test testBadGroupCreation with parameters []
+29704 [Test worker] INFO  pft.tests.TestBase - Stop test testBadGroupCreation
+29713 [Test worker] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=0, name=group 0, header=header 0, footer=footer 0]]
+30840 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupCreation
+30843 [Test worker] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=1, name=group 1, header=header 1, footer=footer 1]]
+32014 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupCreation
+32019 [Test worker] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+32576 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupDeletion
+32582 [Test worker] INFO  pft.tests.TestBase - Start test testGroupEdition with parameters []
+33539 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupEdition
+33869 [AsyncHttpClient-1-4] WARN  o.a.netty.handler.WebSocketHandler - onError
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:394)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:426)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:259)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+11911 [Test worker] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+11511 [Test worker] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+12318 [Test worker] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+13720 [Test worker] ERROR io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+13724 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupDeletion
+11216 [Test worker] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+11852 [Test worker] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+13383 [Test worker] ERROR io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+13392 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupDeletion
+13458 [AsyncHttpClient-1-4] WARN  o.a.netty.handler.WebSocketHandler - onError
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:394)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:426)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:259)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+13823 [Test worker] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+11908 [Test worker] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+12142 [Test worker] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+14251 [Test worker] ERROR io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+14255 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupDeletion
+11841 [Test worker] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+135406 [Test worker] ERROR io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+144680 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupDeletion
+12070 [Test worker] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+74351 [Test worker] ERROR io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+171510 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupDeletion
+11597 [Test worker] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+13125 [Test worker] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+15184 [Test worker] ERROR io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+15188 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupDeletion
+1276 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\jsus2\GIT\java-autotests-training\addressbook-web-test\src\test\resources\testng-groups.xml
+
+7274 [main] INFO  pft.tests.TestBase - Start test testBadGroupCreation with parameters []
+8497 [main] INFO  pft.tests.TestBase - Stop test testBadGroupCreation
+8559 [main] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=0, name=group 0, header=header 0, footer=footer 0]]
+9541 [main] INFO  pft.tests.TestBase - Stop test testGroupCreation
+9544 [main] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=1, name=group 1, header=header 1, footer=footer 1]]
+10465 [main] INFO  pft.tests.TestBase - Stop test testGroupCreation
+10470 [main] INFO  pft.tests.TestBase - Start test testGroupEdition with parameters []
+11639 [main] INFO  pft.tests.TestBase - Stop test testGroupEdition
+11643 [main] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+12364 [main] ERROR io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+12368 [main] INFO  pft.tests.TestBase - Stop test testGroupDeletion
+12633 [Test worker] INFO  pft.tests.TestBase - Start test testBadGroupCreation with parameters []
+14282 [Test worker] INFO  pft.tests.TestBase - Stop test testBadGroupCreation
+14395 [Test worker] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=0, name=group 0, header=header 0, footer=footer 0]]
+15316 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupCreation
+15319 [Test worker] INFO  pft.tests.TestBase - Start test testGroupCreation with parameters [GroupData[id=1, name=group 1, header=header 1, footer=footer 1]]
+16276 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupCreation
+16347 [AsyncHttpClient-1-4] WARN  o.a.netty.handler.WebSocketHandler - onError
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:394)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:426)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:259)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+11692 [Test worker] INFO  pft.tests.TestBase - Start test testGroupDeletion with parameters []
+12997 [Test worker] ERROR io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+13004 [Test worker] INFO  pft.tests.TestBase - Stop test testGroupDeletion

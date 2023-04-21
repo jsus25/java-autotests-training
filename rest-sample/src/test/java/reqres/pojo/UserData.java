@@ -1,10 +1,8 @@
 package reqres.pojo;
 
-import lombok.Data;
-import lombok.Getter;
+import lombok.*;
 
 @Data
-@Getter
 public class UserData {
   private Integer id;
   private String email;

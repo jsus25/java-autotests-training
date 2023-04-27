@@ -16,12 +16,11 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
-public class WithoutPojoTests {
-  private static final String URL = "https://reqres.in/";
+public class WithoutPojoTests extends TestBase{
 
   @Test
   public void testGetListUsers() {
-    Specifications.installSpecification(URL, 200);
+    Specifications.updateSpecification(200);
     Response response = given()
             .when().get("api/users?page=2")
             .then()
@@ -43,7 +42,7 @@ public class WithoutPojoTests {
 
   @Test
   public void testSuccessUserReg() {
-    Specifications.installSpecification(URL, 200);
+    Specifications.updateSpecification(200);
     Map<String, String> user = new HashMap<>();
     user.put("email", "eve.holt@reqres.in");
     user.put("password", "pistol");
@@ -56,7 +55,7 @@ public class WithoutPojoTests {
 
   @Test
   public void testUnSuccessUserReg() {
-    Specifications.installSpecification(URL, 400);
+    Specifications.updateSpecification(400);
     Map<String, String> user = new HashMap<>();
     user.put("email", "ydney@fife");
     Response response = given().body(user)

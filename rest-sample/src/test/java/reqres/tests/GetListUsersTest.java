@@ -19,13 +19,11 @@ import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
-public class GetListUsersTest {
-  private static final String URL = "https://reqres.in/";
+public class GetListUsersTest extends TestBase {
 
   @Test
   public void checkAvatarAndIdTest() {
-
-    Specifications.installSpecification(URL, 200);
+    Specifications.updateSpecification(200);
     List<UserData> users = given()
             .when()
               .get("api/users?page=2")

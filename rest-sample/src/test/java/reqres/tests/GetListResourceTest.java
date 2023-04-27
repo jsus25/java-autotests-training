@@ -1,9 +1,8 @@
 package reqres.tests;
 /*
-Убедиться, что операция LIST<RESOURCE> возвращает данные, отсортированные по годам
-
+Убедиться, что операция LIST<RESOURCE> возвращает данные, отсортированные по годам.
 Используется:
-  - извлечение данных из тела запроса в pojo класс
+- извлечение данных из тела запроса в pojo класс
   - маппинг списка объектов на список значений одного из полей
   - сортировка списка через stream
   - сравнение списков
@@ -17,13 +16,11 @@ import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
-public class GetListResourceTest {
-  private static final String URL = "https://reqres.in/";
+public class GetListResourceTest extends TestBase {
 
   @Test
   public void checkSorting() {
-
-    Specifications.installSpecification(URL, 200);
+    Specifications.updateSpecification(200);
     List<ResourceData> resources = given()
             .when()
             .get("api/unknown")

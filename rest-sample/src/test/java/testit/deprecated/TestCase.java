@@ -1,4 +1,4 @@
-package ru.julia.rest;
+package testit.deprecated;
 
 import java.util.Objects;
 

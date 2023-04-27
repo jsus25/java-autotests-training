@@ -1,18 +1,18 @@
-package ru.julia.rest;
+package testit.deprecated;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import org.apache.http.client.fluent.Request;
-import org.apache.http.entity.ContentType;
+import io.restassured.RestAssured;
 import org.testng.annotations.Test;
-import java.io.IOException;
+
 import java.util.Set;
 
 import static org.testng.Assert.assertEquals;
 
-public class RestTests extends TestBase {
+public class RestAssuredTests extends TestBaseDeprecated {
+
   @Test
-  public void testCreateTestCase() throws IOException {
+  public void testCreateTestCase() {
     Set<TestCase> oldTestCases = getTestCases(projectId);
     TestCase newTestCase = new TestCase().withName("Automation Added Case");
     int testCaseId = createTestCase();
@@ -22,18 +22,21 @@ public class RestTests extends TestBase {
 
   }
 
-  private Set<TestCase> getTestCases(String projectId) throws IOException {
+  private Set<TestCase> getTestCases(String projectId) {
 
-    String body = Request.Get(baseUrl + String.format("v2/projects/%s/workItems?isDeleted=false&includeIterations=true",projectId))
-            .addHeader("authorization",token)
-            .execute().returnContent().asString();
+    String body = RestAssured
+            .given()
+            .header("authorization",token)
+            .get(baseUrl + String.format("v2/projects/%s/workItems?isDeleted=false&includeIterations=true",projectId))
+            .asString();
+
     return new Gson().fromJson(body, new TypeToken<Set<TestCase>>(){}.getType());
   }
 
-  private int createTestCase() throws IOException {
-    String json = Request.Post(baseUrl + "v2/workItems")
-            .addHeader("authorization",token)
-            .bodyString("""
+  private int createTestCase() {
+
+    String json = (RestAssured.given().header("authorization", token))
+            .body("""
                     {
                       "entityTypeName": "TestCases",
                       "description": "This is a basic test template",
@@ -61,9 +64,10 @@ public class RestTests extends TestBase {
                       "sectionId": "9e422ec7-e44f-4518-af81-2fb0d6c161b4",
                       "autoTests": [
                       ]
-                    }""", ContentType.APPLICATION_JSON)
-            .execute()
-            .returnContent()
+                    }""")
+            .contentType("application/json")
+            .when()
+            .post(baseUrl + "v2/workItems")
             .asString();
 
         return new Gson().fromJson(json, TestCase.class).getGlobalId();

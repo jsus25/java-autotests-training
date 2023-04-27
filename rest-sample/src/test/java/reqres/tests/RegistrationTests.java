@@ -25,16 +25,15 @@ import reqres.pojo.RegisterResponseData;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class RegistrationTests {
-  private static final String URL = "https://reqres.in/";
+public class RegistrationTests extends  TestBase {
   @Test
   public void successRegTest() {
-
+    Specifications.updateSpecification(200);
     String email = "eve.holt@reqres.in";
     String password = "pistol";
     Integer id = 4;
     String token = "QpwL5tke4Pnpja7X4";
-    Specifications.installSpecification(URL, 200);
+
     RegisterRequestData user = RegisterRequestData.builder().email(email).password(password).build();
     RegisterResponseData response = given().body(user)
             .when().post("api/register")
@@ -50,7 +49,7 @@ public class RegistrationTests {
   @Test
   public void unsuccessRegTest() {
     String email = "sydney@fife";
-    Specifications.installSpecification(URL, 400);
+    Specifications.updateSpecification(400);
     RegisterRequestData user = RegisterRequestData.builder().email(email).build();
     given().body(user)
             .when().post("api/register")

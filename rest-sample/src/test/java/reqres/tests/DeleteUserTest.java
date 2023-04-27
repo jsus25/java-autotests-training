@@ -8,12 +8,11 @@ import reqres.Specifications;
 
 import static io.restassured.RestAssured.given;
 
-public class DeleteUserTest {
-  private static final String URL = "https://reqres.in/";
+public class DeleteUserTest extends TestBase {
 
   @Test
   public static void deleteUser() {
-    Specifications.installSpecification(URL, 204);
+    Specifications.updateSpecification(204);
     given()
             .when().delete("api/users/2")
             .then().log().all();
